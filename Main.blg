@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: myreference.bib
 Warning--to sort, need author or key in REF1
 Warning--to sort, need author or key in REF2
-You've used 3 entries,
+You've used 5 entries,
             2118 wiz_defined-function locations,
-            515 strings with 4566 characters,
-and the built_in function-call counts, 683 in all, are:
-= -- 66
-> -- 15
+            529 strings with 4768 characters,
+and the built_in function-call counts, 1485 in all, are:
+= -- 141
+> -- 61
 < -- 0
-+ -- 7
-- -- 4
-* -- 36
-:= -- 101
-add.period$ -- 8
-call.type$ -- 3
-change.case$ -- 11
++ -- 25
+- -- 20
+* -- 104
+:= -- 237
+add.period$ -- 13
+call.type$ -- 5
+change.case$ -- 25
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 25
-empty$ -- 75
-format.name$ -- 4
-if$ -- 154
+cite$ -- 7
+duplicate$ -- 47
+empty$ -- 133
+format.name$ -- 20
+if$ -- 316
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 1
-newline$ -- 17
-num.names$ -- 2
-pop$ -- 21
+int.to.str$ -- 5
+missing$ -- 3
+newline$ -- 26
+num.names$ -- 6
+pop$ -- 29
 preamble$ -- 1
-purify$ -- 8
+purify$ -- 20
 quote$ -- 0
-skip$ -- 21
+skip$ -- 38
 stack$ -- 0
-substring$ -- 42
-swap$ -- 3
+substring$ -- 112
+swap$ -- 5
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 20
 warning$ -- 2
-while$ -- 3
-width$ -- 4
-write$ -- 29
+while$ -- 9
+width$ -- 6
+write$ -- 49
 (There were 2 warnings)

@@ -1,6 +1,6 @@
 \documentclass{mcmthesis}
 \mcmsetup{CTeX = false,   % 使用 CTeX 套装时，设置为 true
-        tcn = 2001321, problem = A,
+        tcn = 2001323, problem = A,
         sheet = true, titleinsheet = true, keywordsinsheet = true,
         titlepage = false, abstract = false}
 \usepackage{palatino}
@@ -47,7 +47,7 @@
 
 
 
-\title{\large Proposals for Scottish fisheries Based on Predictions of the Migration Directions of Herring and Mackerel}
+\title{\large The Prediction to the Migration of Scottish Herring and Mackerel }
 \author{}
 \date{\today}
 \geometry{left=2.5cm,right=2.5cm}
@@ -57,20 +57,21 @@
 
 
 \begin{abstract}
-  We have predicted the most likely locations of these two fish species in the next 50 years based on computer simulation methods. And we used a risk decision model to evaluate both strategies 
+  In this paper, we have predicted the most possible locations of these two fish species in the next 50 years based on computer simulation methods. And we used a risk decision model to evaluate both strategies. 
   
-  For problem one: We selected the ocean range of \ang{52} N \textasciitilde \ang{62} N, \ang{0} W \textasciitilde \ang{10} W as the research object and divided the range into a $20 \times 10$ grid. We then calculate the average temperature within each grid. For some key grids, the method of polynomial fitting followed by interval limitation and noise processing is used. From the temperature data from 2000 to 2017, the average temperature change in the next 50 years is predicted. 
+  For question one: We selected the ocean range of \ang{52} N \textasciitilde \ang{62} N, \ang{0} W \textasciitilde \ang{10} W as the research object and divided the range into a $20 \times 10$ grid. We then calculate the average temperature within each grid. For some key grids, the method of polynomial fitting followed by interval limitation and noise processing is used. From the temperature data from 2000 to 2017, the average temperature change in the next 50 years is predicted. 
   Computer simulation was used to finally determine the most likely locations for the school of fish in the next 50 years based on water
 temperature changes over the years.
 
-  For problem two: We found that the average water temperature rises by 0.075 degrees Celsius every 20 years, and the distribution of fish schools moves about one degree northward every 20 years. Then we counted the total fish content of the fishing grounds in Scotland every year. We think that when the value drops to a certain threshold, then small fisheries companies will not be able to harvest. The best situation is after about 200 years and the worst situation might only spend for 50 years.
+  For question two: We found that the average water temperature rises by 0.075 degrees Celsius every 20 years, and the distribution of fish schools moves about one degree northward every 20 years. Then we counted the total fish content of the fishing grounds in Scotland every year. We think that when the value drops to a certain threshold, then small fisheries companies will not be able to harvest. The best situation will come into existence within 50 years and the worst situation will come up in 200 years. 
   
-  For problem three: Our goal is to maximize profits in the next 50 years. So, we have established empirical models of the cost and income of the two strategies, and then combined the distribution changes of the fish school to calculate the profit of the two strategies each year. We finally considered the advantages and disadvantages of both strategies. 
+  For question three: Our goal is to maximize profits in the next 50 years. So, we have established empirical models of the cost and income of the two strategies, and then combined the distribution changes of the fish school to calculate the profit of the two strategies each year. We finally considered the advantages and disadvantages of both strategies. 
   
-  For problem four: After 50 years, a certain proportion of fish will enter the waters of the Danish Faroe Islands, but for small fisheries companies with limited operating radius, this impact is not significant.
+  For question four: After 50 years, a certain proportion of fish will enter the waters of the Danish Faroe Islands, but for small fisheries companies with limited operating radius, this impact is not significant.
   
 \begin{keywords}
-Computer Simulation; Polynomial Fitting; Risk Decision
+Migration Prediction; Computer Simulation Method; Polynomial Fitting; 
+\\ \hspace*{1.2cm}Risk Decision
 \end{keywords}
 \end{abstract}
 \maketitle
@@ -102,7 +103,7 @@ Taking North Sea Cod as an example, the average distribution of cod in the North
 The Gulf of Maine is one of the fastest reported ocean warming areas in the world, with water temperatures expected to rise again by 5.5 degrees Fahrenheit by 2065. Ocean warming has affected Atlantic salmon populations in the Penobscot, St. Croix, and Miramichi rivers in New Brunswick. Atlantic salmon is also migrating to deeper waters.\cite{REF2} 
 
 % 缅因州湾是报道的世界海洋变暖最快的地区之一，预计到2065年，水温度将再次上升5.5华氏度。海洋变暖已经影响了Penobscot河，圣克罗伊河以及新不伦瑞克省Miramichi河的大西洋鲑鱼种群。大西洋三文鱼正往更深的水域迁移。（引用自https://www.chinaoceannews.cn/keji/128963.html）
-Taking North Sea cod as an example, the average distribution of cod in the North Sea has also changed significantly over the past three decades, most of which have shifted to more northern and deeper waters. A strong influence on this phenomenon is the apparent warming trend in the North Sea. At the same time, this phenomenon has also led to a plunge in catches by the border countries in their original fishing grounds. However, the northward shift of fish stocks in the world has damaged some fishing grounds, but also spawned other fishing grounds.\cite{REF3} 
+Taking North Sea cod as an example, the average distribution of cod in the North Sea has also changed significantly over the past three decades, most of which have shifted to more northern and deeper waters. A strong influence on this phenomenon is the apparent warming trend in the North Sea. At the same time, this phenomenon has also led to a plunge in catches by the border countries in their original fishing grounds. However, the northward shift of fish stocks in the world has damaged some fishing grounds, but also spawned other fishing grounds.\cite{REF3} \cite{REFE} 
 %       以北海鳕鱼为例，在过去的三十年中，鳕鱼在北海的平均分布也发生了明显的变化，大部分转移到了和更北端的和平均更深的水域。对于这种现象有一个很强的影响因素就是北海明显变暖的趋势。同时此现象也导致沿边国家在原有渔场的捕捞量暴跌。但全球鱼群北移破坏了部分渔场，但同时也催生了另外一些渔场。
 % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4282283/
 
@@ -128,12 +129,19 @@ Global warming and the gradual increase in the temperature of the sea near Scotl
 % 问题四：如果某一比例的渔业进入另一个国家的领海（海洋），请使用您的模型来说明您的方案受到的影响。
 
 % 问题五：除了你的技术报告外，为相关组织准备一到两页的文章，以帮助渔民了解问题的严重性，以及你提出的解决方案将如何改善他们未来的商业前景。
-
+\begin{itemize}
+  \item Build a mathematical model to identify the most likely locations for fishes over the next 50 years.
+  \item Predict best case, worst case and most likely elapsed tiem(s) unitil small fishing companies unable to harvest.
+  \item Whether these companiese should make changes to their operations. If yes, identify and assess strategies. If not, justify reasons.
+  
+ \item How our proposal is affected if some proportion of the fishery moves into the territorial waters(sea) of another country.
+ \item Prepare an article for magazine to help fishermen.
+\end{itemize}
 
 \section{Problem Analysis}
 Question 1: 
 
-We need to build a mathematical model to determine where these two fish species are most likely to appear in the next 50 years. We need to first build a model to predict the changes in water temperature in the next 50 years. It is not necessary or possible to accurately predict the temperature of each point in the waters around Scotland. Therefore, we can divide some key large areas and combine our existing experience with previous data. The average annual temperature of these regions over the next 50 years is calculated. Water temperature change is the most significant factor to affect fish migration. In addition, fish migration is also related to the distance to the destination. The school of fish tends to migrate to an area where the water temperature is not much different from their favorite temperature. If the destination is near, the probability will also be larger. But it is difficult to directly discuss the change of fish school position in the next 50 years, computer simulation can be used to avoid the complicated internal mechanism.
+We need to build a mathematical model to determine where these two fish species are most likely to appear in the next 50 years. We need to first build a model to predict the changes in water temperature in the next 50 years. It is not necessary or possible to accurately predict the temperature of each point in the waters around Scotland. Therefore, we can divide some key large areas and combine our existing experience with previous data. The average annual temperature of these regions over the next 50 years is calculated. Water temperature change is the most significant factor to affect fish migration. In addition, fish migration is also related to the distance to the destination. The school of fish tends to migrate to an area where the water temperature is not much different from their favorite temperature. If the destination is near, the probability will also be larger. But it is difficult to directly discuss the change of fish school position in the next 50 years, computer simulation can be used to avoid the complicated internal mechanism. \cite{REF4}
 % 问题一：我们需要建立一个数学模型，以确定这两种鱼类在未来50年内最有可能出现的位置。我们需要先建立模型预测未来50年水温会发生的变化，没有必要也不太可能精确预测苏格兰附近海域每一点的温度，因此可以划分一些关键的大区域，结合我们现有的经验和以往数据拟合出未来50年这些区域的年均温。水温变化足够影响鱼群的迁徙，另外鱼群的迁徙还与到目的地的距离有关，鱼群倾向与向水温与它们的最喜温度相差不大的海域迁徙，如果目的地较近，这个概率也会更大，但是如果直接讨论未来50年鱼群位置的变化显得有些困难，因此可以采用计算机模拟的方式，避开其中的复杂内部机理。
 
 Question 2:
@@ -179,25 +187,27 @@ If a certain proportion of fish schools enter the territorial sea of other count
 Symbol& Meaning \\
 \hline
 
-$p(x,y)$      & Network nodes
+$p(x,y)$      & Probability of fish school migrating to (x, y) position
                                                          \\
-$t_0$      & Network arcs
+$t_0$      & Favorite temperature for herring or mackerel
                                                           \\
-$t$     & Collection points
+$t$     & Sea temperature
                                                         \\
-$y$       & Shelter nodes                                                            \\
-$d$      & Time horizon                                                            \\
-$O_{ij}$       & Traversal of arc (i,j)                                  \\
-$I_{ij}$       & The spend time passing arc (i,j)                                         \\
-$q_{ij}$       & The risk factor passing arc (i,j) at that time                            \\
-$r$       & The munber of evacuees using car to go from node i to node j at that time \\
+$y$       & Year                                                           \\
+$d$      & Distance of fish migration                                                            \\
+$O_{ij}$       & The cost of company j in year i                                  \\
+$I_{ij}$       & The income of company j in year i                                         \\
+$q_{ij}$       & The number of units of fish in company j in year i
+\\
+$r$       & The monthly maintenance fee \\
 $P_i$       & The munber of evacuees using bus to go from node i to node j at that time \\
-$m$      & The jam factor                                                            \\
-$n$       & The munber of bus driving on arc (i,j) at that time                      \\
-$g$       & The munber of car driving on arc (i,j) at that time                      \\
-$k$       & The munber of people in the j shelter at that time                       \\
-$ht$       & Time delay                                                                \\
-$b$       & Quantitative indicators of risk of taking shelter                         \\
+$m$      & The distance of the company have moved                                                            \\
+$n$       & The number of fishing vessels purchased                      \\
+$g$       & The unit price of each small fishing vessel                     \\
+$k$       & The company's migration price per unit distance
+\\
+$h$       & The income per unit of fish                                                                \\
+$b$       & The efficiency improvement factor when using small fishing vessels                         \\
                                                         \\ \hline
 
  \end{longtable}
@@ -205,8 +215,8 @@ $b$       & Quantitative indicators of risk of taking shelter                   
 
 
 \section{Establishment and Solution of Model}
-\subsection{The Model for the first Problem}
-\subsubsection{The Regiional Sea Temperature Model}
+\subsection{The Model for the First Question}
+\subsubsection{The Regional Sea Temperature Model}
 We divided the range \ang{52} N \textasciitilde \ang{62} N, \ang{0} W \textasciitilde \ang{10} W into 20 small squares into a $20 \times 10$ grid, as is shown in figure \ref{RealMap}.
 
 
@@ -284,30 +294,15 @@ Where $t$ is the predicted water temperature, $a$ is a constant, $y$ is the year
 As shown in Figure \ref{SeaT}, we can observe the depth of the color of the small grid to directly obtain the water temperature level. The dark blue area in the figure is the land area, and its value is meaningless.
 
 \begin{figure}[H]
-
   \centering
-  
-  \subfigure[In 2017]{
-  
-  \label{SeaT2017} %% label for first subfigure
-  
-  \includegraphics[width=1.5in]{./picture/1_5.png}}
-  
-  \hspace{1in}
-  
+  \subfigure[In 2017]{               %小图题的名称
+  \includegraphics[width=4cm]{./picture/1_5.png}}
+  \hspace{0in}
   \subfigure[In 2070]{
-  
-  \label{SeaT2070} %% label for second subfigure
-  
-  \includegraphics[width=1.5in]{./picture/1_6.png}}
-  
+  \includegraphics[width=4cm,height=6.7cm]{./picture/1_6.png}}
+  \label{SeaT}
   \caption{The Sea Temperature Map around Scotland in Different Years}
-  
-  \label{SeaT} %% label for entire figure
-  
   \end{figure}
-\subsubsection{The Regional Fish Distribution Model}
-
 Using the model above, we could obtain a water temperature change map for the next 50 years. The map is composed of $20 \times 10$ squares. Next, we use computer simulation to let fish schools migrate according to water temperature changes and positional relationships. The 20 x10 matrix is obviously not enough to simulate the migration of this school of fish. For this purpose, a $200 \times 100$ matrix is first generated to represent the distribution of the school of fish. The matrix value is a Boolean number. True means fish, false means no fish, a NaN means it is on land and meaningless. We can see the fish production of various fisheris in Scotland in 2017 as shown in the table below.
 
 \begin{table}[H]
@@ -380,25 +375,25 @@ The next step is to use Matlab for computer simulation. The flow chart of the si
 
 The process of the simulation is the change of the distribution of fish schools per year, and we run the flowchart multiple times for one simulation to exclude the influence of accidental factors. We need to traverse each fish school, and then calculate the probability of the fish school migrating to a nearby point. After the probability of all surrounding points is calculated, a random number is generated. The final destination of this school of fish migration is determined according to which interval is the random number located.
 
-\subsubsection{The Result}
+\subsubsection{The Result of Modeling}
 According to this simulation process and the water temperature change matrix obtained previously, we finally got a fish school distribution map for the next 50 years. For comparison, we display one every 10 years and add a real-world map as the background, as shown in figure \ref{Dist}.
 
 \begin{figure}[H]
   \centering
   \subfigure[After 10 years]{               %小图题的名称
-  \includegraphics[width=3.5cm]{./picture/1_10.png}}
+  \includegraphics[width=4cm]{./picture/1_10.png}}
   \hspace{0in}
   \subfigure[After 20 years]{
-  \includegraphics[width=3.5cm]{./picture/1_11.png}}
+  \includegraphics[width=4cm]{./picture/1_11.png}}
   \hspace{0in}
   \subfigure[After 30 years]{
-  \includegraphics[width=3.7cm]{./picture/1_12.png}}
+  \includegraphics[width=4.2cm]{./picture/1_12.png}}
   \hspace{0in}
   \subfigure[After 40 years]{
-  \includegraphics[width=3.5cm]{./picture/1_13.png}}
+  \includegraphics[width=4cm]{./picture/1_13.png}}
   \hspace{0in}
   \subfigure[After 50 years]{
-  \includegraphics[width=3.5cm]{./picture/1_14.png}}
+  \includegraphics[width=4cm]{./picture/1_14.png}}
   \label{Dist}
   \caption{The prediction of future fish school distribution around Scotland}
   \end{figure}
@@ -406,7 +401,13 @@ According to this simulation process and the water temperature change matrix obt
 
 
 
-
+Notes:
+\begin{itemize}
+  \item The density of the small black dots in the picture reflects the density of the school of fish.
+  \item We only study fish schools that may be harvested, and the fisheris far from the mainland are not shown.
+  \item You may see some points falling on the land. This is because we have abstracted the outline of England's continent into a grid chart.
+  \item From the picture, we can roughly observe that after every 20 years, the distribution of the school of fish will move one degree northward, about 110km.
+\end{itemize}
 
 \subsection{The Model for the Second Question}
 \subsubsection{Preparations before modeling}
@@ -445,14 +446,10 @@ First, we calculated the number of fish in each area in the next 50 years based 
 
 We found that the fish production of most fisheris is decreasing year by year, and it is related to the geographical location of the fisheris: the latitude of the fishery , the depth of the water area, whether there are other fisheris near the low latitudes and  whether the location is necessary for fish migration all affect the change of fish production in the fishery. We adjusted the parameters in the model to simulate the most likely situation, and the result is as the figure above.
 
-
-\subsubsection{Best Case for Fishing Companies}
-
 At best, 50 years later, the Argyll \& Clyde fishing grounds in Scotland are the first to fail to harvest.
 
 Assuming that the fish production of a certain fishery is lower than 20\% of the initial production, we regarde that the area will not be able to harvest. According to the statistical results, the production of southest fishery Argyll \& Clyde is less than 20\% of its initial value after about 50 years. From this we can see that if the Argyll \& Clyde fishery does not change its business strategy, its performance will continue to decline and eventually unable to operate. It can be observed from the figure that when the Argyll \& Clyde fishery is facing a crisis, the production of the Outer Hebrides fishery and the Shetland Isles fishery has increased slightly, indicating that some of the fish migrating to the north of the Argyll \& Clyde fishery have entered a certain area in the north, which is a better situation.
 
-\subsubsection{Worst Case for Fishing Companies}
 At worst, most fisheries, including Shetland Isles, will not be harvested after 200 years.
 
 Based on the trend of global temperature warming and the data of the average sea temperature change in the sea area near Scotland in the past 5 years, we can conclude that the growth rate of its water temperature is increasing year by year. We have to consider the worst case, that is, almost all small fishing companies have no fish to be harvested. Based on this situation, we have adjusted the model parameters of seawater temperature changes to comply with the trend of accelerated global warming and extended the forecast time. In the previous model, we knew that every 20 years, the school of fish moved north by one latitude. Based on the adjusted model, we used the estimated method to get the worst case: 200 years later, most fisheries, including Shetland Isles, will not be harvested.
@@ -517,7 +514,7 @@ $y_f$ is the ending year;
 
 Except for the distance the company migrates and the number of fishing vessels purchased is determined by the company's decision, the other quantities are parameters that are not affected by human will.
 
-\subsubsection{Conclusion}
+\subsubsection{Proper Strategies to Take}
 By rationally setting the parameters, we can judge the profitability of these two strategies in the next 50 years. It can be observed through the formula that if strategy one is adopted, although the initial revenue is not ideal, the cost of moving the company is a great burden. However, in the later period, due to the migration of fish, production gradually increased, and eventually the accumulated income was higher. With the second strategy, income was initially increased due to the use of new fishing vessels. However, when fish schools moved, not only output began to decline, but also the cost of additional small fishing vessels got higher.
 
 Although the whole profit of first strategy is seemed to be higher than the second strategy in terms of final returns, the second strategy may be the optimal choice for companies with limited financing capabilities. The decisions of other companies may also have an impact on themselves. The aggregation of fishery companies will cause losses to each other. The flexibility of strategy two can come in handy. The specific strategy to be adopted depends on the actual situation of the company.
@@ -525,7 +522,7 @@ Although the whole profit of first strategy is seemed to be higher than the seco
 \subsection{Impact of foreign territorial seas on the benefits}
 Observing Scotland's continental location, we can see that there are almost no territorial waters in other countries near the east-west direction. What we only need to consider is the territorial waters of the Irish territorial waters in the south and the Faroe Islands in the north. According to the previous research conclusions: about every 20 years, the school of fish moves northward by one degree of latitude, then about 50 years later, some fish will enter the waters of the Danish Faroe Islands. But the waters of the Faroe Islands are very far away from these fishing companies, so this part of the school of fish is not in our consideration. Therefore, if a certain proportion of fishery enters the territorial sea of another country, it will have little effect on the model we have established earlier.
 
-\section{The Evaluation of Model}
+\section{The Evaluation of Model and Further Discussion}
 
 \subsection{Strengths}
 
@@ -545,7 +542,7 @@ Observing Scotland's continental location, we can see that there are almost no t
   \item Only the temperature change of seawater at 50m underwater was simulated, and the conditions of different water layers and the effects of ocean currents were not considered;
 \end{itemize}
 
-\section{Further Application and Extension}
+\subsection{Further Application and Extension}
 According to our interpretation of the topic, we can know that our model is to predict the integral behavior of the group, and to simulate the integral behavior of the integral regularity by simulating the random behavior of the individual.
 
 The situation described in this question is similar to the marine life in other areas in many cases. Therefore, this model has the potential of Scale-out first. It can not only predict the migration direction of Scottish herring and mackerel along the Scottish coast, but also The research object has been modified and promoted to predict the migration direction of marine animals in any sea area in the world, which can effectively provide fisheries companies in various places to the north of various natural fishing grounds, reduce the losses of fishery companies, and maintain the company as much as possible .
@@ -559,13 +556,13 @@ In addition, we can also expand our model vertically. Seawater temperatures are 
 
 Scottish herring and mackerel contribute greatly to the economy of Scottish fisheries. In order to better understand the related issues that these two fish may migrate from existing habitats near Scotland, our team have done some research and hope to help Scottish fishermen understand how seriousness of  the problem. In addition, we have proposed some solutions, hoping to improve their future business prospects.
 
-Based on computer simulation methods, out team predicted the most likely locations for these two fish species in the next 50 years based on water temperature changes over 50 years and the habits of herring and mackerel. In addition, by simulating the profit and loss data of small fisheries companies choosing different strategies for a period of time in the future, we identify and evaluate strategies that are practical and economically attractive to small fisheries companies.
+Based on computer simulation methods, our team predicted the most likely locations for these two fish species in the next 50 years based on water temperature changes over 50 years and the habits of herring and mackerel. In addition, by simulating the profit and loss data of small fisheries companies choosing different strategies for a period of time in the future, we identify and evaluate strategies that are practical and economically attractive to small fisheries companies.
 
 The result of our technical analysis is: With global warming, schools of fish in Scottish waters are moving north by 1 degree latitude every 20 years.
 
 Our team have compiled the water temperature data for Scotland from 2000 to 2017, and then analyzed the data to find that the global water temperature has a rising trend, and this trend has become faster and faster in recent years. The temperature of the upper 2000 meters of the global ocean in 2019 is 0.075 degrees Celsius higher than the average state of 1981-2010. The heat content of the upper 2000 meters of the ocean in 2019 is 25 * 1021 joules higher than in 2018, setting a new historical record. During the period 1987-2019, the average ocean warming rate was 450\% during the period 1955-1986, showing a continuous trend of accelerated ocean warming. Marine organisms are very sensitive to the temperature of seawater. Each organism has a critical temperature range for its growth and reproduction. The temperature controls the enzyme reactions that affect digestion through hormones and nerves. At the same time, the increase in temperature will increase the toxicity of toxic substances in the water, driving fish away from the originally suitable sea area to the sea area with a more suitable temperature. In the southern part of Scotland, there will be no fish to supplement due to the decrease in the number of fish. About 50 years later, Argyll \& Clyde fishing grounds will not be harvested. About 200 years later, most fishing grounds including Shetland Isles fishing ground It will not be harvested, and Scottish fisheries production will cause huge losses.
 
-As for this case, out team have proposed two feasible solutions  in order to improve their future business prospects.
+As for this case, our team have proposed two feasible solutions  in order to improve their future business prospects.
 
 The first solution is to transfer some or all of a fishing company's assets from a current location in a  Scottish port to a closer to where both fish populations are moving; the second solution is to use a certain percentage of small fishing vessels to expand the fishing company's operating radius to ensure the fish's freshness and quality. 
 
