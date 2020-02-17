@@ -1,19 +1,27 @@
 \BOOKMARK [1][]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][]{subsection.1.1}{Background}{section.1}% 2
-\BOOKMARK [2][]{subsection.1.2}{Problem Restatement}{section.1}% 3
-\BOOKMARK [2][]{subsection.1.3}{Our Work}{section.1}% 4
-\BOOKMARK [1][]{section.2}{Assumptions}{}% 5
-\BOOKMARK [1][]{section.3}{List of Notation}{}% 6
-\BOOKMARK [1][]{section.4}{The Sanctuary Selection Model}{}% 7
-\BOOKMARK [1][]{section.5}{The Demand Distribution Model}{}% 8
-\BOOKMARK [1][]{section.6}{The Comprehensive Evacuation Planning Model}{}% 9
-\BOOKMARK [2][]{subsection.6.1}{Model Preparation}{section.6}% 10
-\BOOKMARK [2][]{subsection.6.2}{Modeling}{section.6}% 11
-\BOOKMARK [2][]{subsection.6.3}{Model Solution}{section.6}% 12
-\BOOKMARK [1][]{section.7}{Strengths and Weaknesses}{}% 13
-\BOOKMARK [2][]{subsection.7.1}{Strengths}{section.7}% 14
-\BOOKMARK [2][]{subsection.7.2}{Weaknesses and Extensions}{section.7}% 15
-\BOOKMARK [1][]{subsection.7.2}{Reference}{}% 16
-\BOOKMARK [1][]{section*.2}{Appendices}{}% 17
-\BOOKMARK [1][]{Appendix.a.A}{Appendix First appendix}{}% 18
-\BOOKMARK [1][]{Appendix.a.B}{Appendix Second appendix}{}% 19
+\BOOKMARK [2][]{subsection.1.2}{Restatement of the Problem}{section.1}% 3
+\BOOKMARK [1][]{section.2}{Problem Analysis}{}% 4
+\BOOKMARK [1][]{section.3}{Assumptions and Symbols Definitions}{}% 5
+\BOOKMARK [2][]{subsection.3.1}{Assumptions}{section.3}% 6
+\BOOKMARK [2][]{subsection.3.2}{Symbols Definitions}{section.3}% 7
+\BOOKMARK [1][]{section.4}{Establishment and Solution of Model}{}% 8
+\BOOKMARK [2][]{subsection.4.1}{The Model for the first Problem}{section.4}% 9
+\BOOKMARK [3][]{subsubsection.4.1.1}{The Regiional Sea Temperature Model}{subsection.4.1}% 10
+\BOOKMARK [3][]{subsubsection.4.1.2}{The Regional Fish Distribution Model}{subsection.4.1}% 11
+\BOOKMARK [3][]{subsubsection.4.1.3}{The Result}{subsection.4.1}% 12
+\BOOKMARK [2][]{subsection.4.2}{The Model for the Second Question}{section.4}% 13
+\BOOKMARK [3][]{subsubsection.4.2.1}{Preparations before modeling}{subsection.4.2}% 14
+\BOOKMARK [3][]{subsubsection.4.2.2}{The Result of Modeling}{subsection.4.2}% 15
+\BOOKMARK [3][]{subsubsection.4.2.3}{Best Case for Fishing Companies}{subsection.4.2}% 16
+\BOOKMARK [3][]{subsubsection.4.2.4}{Worst Case for Fishing Companies}{subsection.4.2}% 17
+\BOOKMARK [2][]{subsection.4.3}{Feasible Strategies for Local Fisheries Companies}{section.4}% 18
+\BOOKMARK [3][]{subsubsection.4.3.1}{Analysis and Formula}{subsection.4.3}% 19
+\BOOKMARK [3][]{subsubsection.4.3.2}{Conclusion}{subsection.4.3}% 20
+\BOOKMARK [2][]{subsection.4.4}{Impact of foreign territorial seas on the benefits}{section.4}% 21
+\BOOKMARK [1][]{section.5}{The Evaluation of Model}{}% 22
+\BOOKMARK [2][]{subsection.5.1}{Strengths}{section.5}% 23
+\BOOKMARK [2][]{subsection.5.2}{Weaknesses}{section.5}% 24
+\BOOKMARK [1][]{section.6}{Further Application and Extension}{}% 25
+\BOOKMARK [1][]{section.7}{Article for Hook Line and Sinker Magezine}{}% 26
+\BOOKMARK [1][]{section.7}{Reference}{}% 27
