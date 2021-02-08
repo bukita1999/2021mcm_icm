@@ -335,14 +335,28 @@ Now for any witness’s report, we can enter the witness location to get the sco
 
 According to the existing notes, we can see that all reports that were finally identified as positive do not have a specific description of the appearance, while many of the cases of negative and unverified have detailed description about pests. We can conclude that notes are not significant for whether the sighting is an Asian giant Hornet or not, so the notes classification model based on Naive Bayes has the lowest proportion in the fusion model. But it's not saying that these notes are worthless. In negative reports, the most frequently appearing words are often the Asian giant Hornet characteristics that are most misleading. Therefore, based on this, we can use the frequency of high-frequency misleading words to reversely evaluate the probability that witnesses misjudge the Asian giant Hornet report.
 
-\subsubsection{The Result of Modeling}
-First, we calculated the number of fish in each area in the next 50 years based on the sea temperature change model and computer simulation, as shown in Figure\ref{FishProductionCurve}
+\subsubsection{A Plain Bayesian-based Review Classification Model}
+According to the existing notes, we can see that all reports that were finally identified as positive do not have a specific description of the appearance, while many of the cases of negative and unverified have detailed description about pests. We can conclude that notes are not significant for whether the sighting is an Asian giant Hornet or not, so the notes classification model based on Naive Bayes has the lowest proportion in the fusion model. But it's not saying that these notes are worthless. In negative reports, the most frequently appearing words are often the Asian giant Hornet characteristics that are most misleading. Therefore, based on this, we can use the frequency of high-frequency misleading words to reversely evaluate the probability that witnesses misjudge the Asian giant Hornet report.
 
-\begin{figure}[tbp]
+First, we remove the staying words and count the frequency of keywords in all notes. The statistical results can show the corresponding high-frequency words. The statistical results are shown in the following figure:
+
+\begin{figure}[H]
   \centering{
-  \includegraphics[width=8cm]{./picture/2_1.png}}
-  \caption{Fish production curve in each fishery around Scotland within 50 years}\label{FishProductionCurve}
+  \includegraphics[width=10cm]{./picture/2_1.png}}
+  \caption{Sorting of high frequency words in "Negative ID"}\label{sohfw}
 \end{figure}
+
+We can see that the first few high-frequency vocabulary are words that people must use in oral speech or words that are not related to Vespa mandarinia. This is a part of vocabulary that are not meaningful, so we remove it. At the same time, in order to reduce the parameters, words that appear less than five times are also removed, and the remaining high-frequency words are sorted as shown in the following figure.
+
+\begin{figure}[H]
+  \centering{
+  \includegraphics[width=10cm]{./picture/2_2.png}}
+  \caption{Sorting of high frequency words in "Negative ID" after filtering}\label{sohfwaf}
+\end{figure}
+
+After that, we will use the Naive Bayes algorithm to evaluate the misleadingness of the notes, so as to convert the problem into a classification problem for notes in the report. The reason why we use Naive Bayes is its stable classification efficiency. It performs well on small-scale data, can handle multiple classification tasks, and is suitable for incremental training. And it is not very sensitive to missing data and is relatively simple and often used for text classification.
+
+We assume that the appearance of these high-frequency words is independent, because the naive Bayes algorithm requires that each feature be independent of each other. We can calculate the probability of being misled by witnesses under the premise that certain high-frequency vocabulary appears directly based on the conditional probability formula without training the model. Now for any report, if it contains a note, we can get the probability that the report was misled so as to infer the probability that the report does belong to the Asian giant Hornet. If notes are not provided,  this sub-model is set to be the default score 0.5. Considering that notes are dirty, this model will take the smallest part of the weight in the fusion model.
 
 \begin{table}[!htbp]
   \centering

@@ -9,14 +9,14 @@
 \contentsline {subsection}{\numberline {3.2}Sighting Report Priority Assessment Model}{8}{subsection.3.2}% 
 \contentsline {subsubsection}{\numberline {3.2.1}A risk assessment model based on the location of the sighting}{8}{subsubsection.3.2.1}% 
 \contentsline {subsubsection}{\numberline {3.2.2}A Plain Bayesian-based Review Classification Model}{9}{subsubsection.3.2.2}% 
-\contentsline {subsubsection}{\numberline {3.2.3}The Result of Modeling}{9}{subsubsection.3.2.3}% 
-\contentsline {subsection}{\numberline {3.3}Feasible Strategies for Local Fisheries Companies}{10}{subsection.3.3}% 
-\contentsline {subsubsection}{\numberline {3.3.1}Analysis and Formula}{10}{subsubsection.3.3.1}% 
-\contentsline {subsubsection}{\numberline {3.3.2}Proper Strategies to Take}{12}{subsubsection.3.3.2}% 
-\contentsline {subsection}{\numberline {3.4}Impact of foreign territorial seas on the benefits}{12}{subsection.3.4}% 
-\contentsline {section}{\numberline {4}The Evaluation of Model and Further Discussion}{12}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Strengths}{12}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Weaknesses}{13}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Further Application and Extension}{13}{subsection.4.3}% 
-\contentsline {section}{\numberline {5}Article for Hook Line and Sinker Magezine}{15}{section.5}% 
+\contentsline {subsubsection}{\numberline {3.2.3}A Plain Bayesian-based Review Classification Model}{9}{subsubsection.3.2.3}% 
+\contentsline {subsection}{\numberline {3.3}Feasible Strategies for Local Fisheries Companies}{12}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}Analysis and Formula}{12}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}Proper Strategies to Take}{13}{subsubsection.3.3.2}% 
+\contentsline {subsection}{\numberline {3.4}Impact of foreign territorial seas on the benefits}{13}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}The Evaluation of Model and Further Discussion}{14}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Strengths}{14}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Weaknesses}{14}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Further Application and Extension}{15}{subsection.4.3}% 
+\contentsline {section}{\numberline {5}Article for Hook Line and Sinker Magezine}{16}{section.5}% 
 \contentsfinish 
