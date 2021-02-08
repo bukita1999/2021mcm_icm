@@ -57,21 +57,15 @@
 
 
 \begin{abstract}
-  In this paper, we have predicted the most possible locations of these two fish species in the next 50 years based on computer simulation methods. And we used a risk decision model to evaluate both strategies. 
+  This paper establishes a model for the spread of Vespa mandarinia over time and a priority assessment model for eyewitness reports. By analyzing the notes, pictures, and sighting locations provided by the eyewitnesses, the multimodal classification model established in this paper is able to lead to prioritizinginvestigation of the reports most likely to be positive sightings.
   
-  For question one: We selected the ocean range of \ang{52} N \textasciitilde \ang{62} N, \ang{0} W \textasciitilde \ang{10} W as the research object and divided the range into a $20 \times 10$ grid. We then calculate the average temperature within each grid. For some key grids, the method of polynomial fitting followed by interval limitation and noise processing is used. From the temperature data from 2000 to 2017, the average temperature change in the next 50 years is predicted. 
-  Computer simulation was used to finally determine the most likely locations for the school of fish in the next 50 years based on water
-temperature changes over the years.
-
-  For question two: We found that the average water temperature rises by 0.075 degrees Celsius every 20 years, and the distribution of fish schools moves about one degree northward every 20 years. Then we counted the total fish content of the fishing grounds in Scotland every year. We think that when the value drops to a certain threshold, then small fisheries companies will not be able to harvest. The best situation will come into existence within 50 years and the worst situation will come up in 200 years. 
+  For the spread of Vespa mandarinia over time , this paper analyzed the distribution of honey bee hives, vegetation cover, hornet habits, and rated the risk for each county in Washington. This paper then inferred three possible spread routes of hornet and a key area for hornets. For the priority assessment model of eyewitness reports, this paper uses three sub-classification models to obtain the final multimodal classification model, which specifically includes a risk assessment model based on the location of the sighting, a note classification model based on Naive Bayes, and a picture classification model based on EfficientNet. In this paper, the original data are firstly preprocessed with formatting, data enhancement, sample equalization,  training set slicing, and then the three sub-models are trained independently. Finally the hyperparameters of model fusion are analyzed for sensitivity. Considering the existence of many unlabeled samples, this paper uses a semi-supervised approach to train the models. Considering the dynamic expansion of samples, this paper suggests using batch learning to update the model when the number of new samples reaches 400.
   
-  For question three: Our goal is to maximize profits in the next 50 years. So, we have established empirical models of the cost and income of the two strategies, and then combined the distribution changes of the fish school to calculate the profit of the two strategies each year. We finally considered the advantages and disadvantages of both strategies. 
-  
-  For question four: After 50 years, a certain proportion of fish will enter the waters of the Danish Faroe Islands, but for small fisheries companies with limited operating radius, this impact is not significant.
+  This paper prioritizes the Unprocessed and Unverified labeled samples and lists the top eight samples in terms of likelihood of Vespa mandarinia occurrence. This paper summarizes the advantages and disadvantages of the model, and puts forward the future improvement work.
   
 \begin{keywords}
-Migration Prediction; Computer Simulation Method; Polynomial Fitting; 
-\\ \hspace*{1.2cm}Risk Decision
+EfficientNet; Naive Bayes; Semi-supervision; Batch Learning  
+
 \end{keywords}
 \end{abstract}
 \maketitle
@@ -96,21 +90,16 @@ Migration Prediction; Computer Simulation Method; Polynomial Fitting;
 \section{Introduction}
 \subsection{Background}
 
-In recent years, as global warming has become more severe, seawater temperatures have also been significantly affected. Marine organisms are very sensitive to the temperature of seawater. Each organism has a critical temperature range for its growth and reproduction. The temperature controls the enzyme reactions that affect digestion through hormones and nerves. At the same time, the increase in temperature will increase the toxicity of toxic substances in the water, driving fish away from the originally suitable sea area to the sea area with a more suitable temperature.\cite{REF1}
+The Asian giant hornet is the largest and most cruel hornet in the world. It looks like a AA battery with wings and armor. It also has a huge stinger and eagers to bite off the bee’s head and sting people. The name "killer bumblebee" comes from this giant insect that can kill the entire bee colony, and the deaths of dozens of people each year are also related to them.
 
-Taking North Sea Cod as an example, the average distribution of cod in the North Sea has also changed significantly over the past three decades, most of which have shifted to more northern and deeper waters. A strong influence on this phenomenon is the apparent warming trend in the North Sea. At the same time, this phenomenon has also led to a plunge in catches by the border countries in their original fishing grounds. However, the northward shift of fish stocks in the world has damaged some fishing grounds, but also spawned other fishing grounds.
-% 近年来，随着愈发严重的全球变暖，海水温度也受到了十分显著的影响。海洋生物对于海水温度十分敏感，每种生物的生长和繁殖都具有临界温度范围，温度通过激素和神经控制影响消化的酶反应。同时，温度的升高会对水中的有毒物质的毒性进行增强，驱使鱼群离开原本适宜的海域，前往具有更加适宜温度的海域。http://www.watercenter.org/physical-water-quality-parameters/water-temperature/water-temperature-effects-on-fish-and-aquatic-life/
-The Gulf of Maine is one of the fastest reported ocean warming areas in the world, with water temperatures expected to rise again by 5.5 degrees Fahrenheit by 2065. Ocean warming has affected Atlantic salmon populations in the Penobscot, St. Croix, and Miramichi rivers in New Brunswick. Atlantic salmon is also migrating to deeper waters.\cite{REF2} 
+What makes people worried is that North American bees do not know how to fight back Asian giant hornet like Asian bees. Asian bees will use a strategy called "hotball" to kill Asian hornet. This strategy means that Asian honeybees will swarm on a Asian giant hornet that is much larger than them and begin to vibrate their small bodies, producing enough heat to effectively "cook" the hornet from within, thereby killing it. Experts worry that Vespa mandarinia hornet may have catastrophic consequences for European bees in North America. The number of European honeybees in North America was reduced due to pesticides and many other factors. Now such a huge enemy has been added.
 
-% 缅因州湾是报道的世界海洋变暖最快的地区之一，预计到2065年，水温度将再次上升5.5华氏度。海洋变暖已经影响了Penobscot河，圣克罗伊河以及新不伦瑞克省Miramichi河的大西洋鲑鱼种群。大西洋三文鱼正往更深的水域迁移。（引用自https://www.chinaoceannews.cn/keji/128963.html）
-Taking North Sea cod as an example, the average distribution of cod in the North Sea has also changed significantly over the past three decades, most of which have shifted to more northern and deeper waters. A strong influence on this phenomenon is the apparent warming trend in the North Sea. At the same time, this phenomenon has also led to a plunge in catches by the border countries in their original fishing grounds. However, the northward shift of fish stocks in the world has damaged some fishing grounds, but also spawned other fishing grounds.\cite{REF3} \cite{REFE} 
-%       以北海鳕鱼为例，在过去的三十年中，鳕鱼在北海的平均分布也发生了明显的变化，大部分转移到了和更北端的和平均更深的水域。对于这种现象有一个很强的影响因素就是北海明显变暖的趋势。同时此现象也导致沿边国家在原有渔场的捕捞量暴跌。但全球鱼群北移破坏了部分渔场，但同时也催生了另外一些渔场。
-% https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4282283/
+Considering the huge threat of the Asian giant Hornet, it is particularly important for the Washington Department of Agriculture to take precise measures to eliminate it. Therefore, the Washington State Department of Agriculture said in a statement: “The most likely time to catch the Asian giant Hornet is from July to October. This is when the colony is established and the workers are foraging. If you want to trap the queen, the earliest the trap can be hung in April, but because the number of queens is significantly less than the workers, the possibility of catching the queen is very small." These researchers are working with the Washington State Department of Agriculture, beekeepers and the public to find and study these giant hornets, and prevent its spread.
 
-Global warming and the gradual increase in the temperature of the sea near Scotland have driven fish schools out of their original seas. This has a huge impact on fisheries production in Scotland. Therefore, we will analyze the changes in fish school positions over the next 50 years and what strategy we should take seems significant.
-%        全球气候变暖，苏格兰附近海水温度逐渐升高，驱使鱼群离开原本适宜的海域，这对苏格兰的渔业生产造成了巨大影响，因此研究鱼群在未来50年内的位置变化以及对此应当采取的策略显得意义重大。
+This article discusses the spread of Asian giant hornets over time and hopes to help the Washington Department of Agriculture deal with more urgent reports by predicting the probability of this sighting being a Vespa mandarinia based on pictures, notes, sighting locations, time and other information reported by witnesses.
 
-\subsection{Restatement of the Problem}
+
+\subsection{Problem Analysis}
 
 % 问题一：建立一个数学模型，以确定这两种鱼类在未来50年内最有可能出现的位置，假设水温变化足以导致种群移动。
 
@@ -130,10 +119,10 @@ Global warming and the gradual increase in the temperature of the sea near Scotl
 
 % 问题五：除了你的技术报告外，为相关组织准备一到两页的文章，以帮助渔民了解问题的严重性，以及你提出的解决方案将如何改善他们未来的商业前景。
 \begin{itemize}
-  \item Build a mathematical model to identify the most likely locations for fishes over the next 50 years.
-  \item Predict best case, worst case and most likely elapsed tiem(s) unitil small fishing companies unable to harvest.
-  \item Whether these companiese should make changes to their operations. If yes, identify and assess strategies. If not, justify reasons.
+  \item \textbf{Address and discuss whether or not the spread of this pest over time can be predicted,and with what level of precision.}
   
+  First, we analyze the living habits and determine the suitable living environment of Vespa mandarinia. Then we comprehensively consider the distribution of bee hives in each county in Washington State, vegetation coverage, traffic topography and other factors, and score the basic situation of each county in Washington State. Combining these objective factors and a small amount of wasp sighting samples, we can easily analyze the distribution of this pest over time. Considering that the number of positive samples is less than 20 and the distribution area is very cramped, we can roughly divide the key areas of Asian giant hornet distribution and the possible migration routes over time. The accuracy of the model can be measured by analyzing the number of positive samples that fall in the area.
+  \item Most reported sightings mistake other hornets for the Vespa mandarinia. Use only the data set file provided, and (possibly) the image files provided, to create, analyze, anddiscuss a model that predicts the likelihood of a mistaken classification.
  \item How our proposal is affected if some proportion of the fishery moves into the territorial waters(sea) of another country.
  \item Prepare an article for magazine to help fishermen.
 \end{itemize}
