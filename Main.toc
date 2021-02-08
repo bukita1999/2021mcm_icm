@@ -11,13 +11,15 @@
 \contentsline {subsubsection}{\numberline {3.2.2}A Plain Bayesian-based Review Classification Model}{7}{subsubsection.3.2.2}% 
 \contentsline {subsubsection}{\numberline {3.2.3}A Plain Bayesian-based Review Classification Model}{8}{subsubsection.3.2.3}% 
 \contentsline {subsubsection}{\numberline {3.2.4}EfficientNet-based image classification model}{9}{subsubsection.3.2.4}% 
-\contentsline {subsubsection}{\numberline {3.2.5}The fusion model based on the above three sub-models}{10}{subsubsection.3.2.5}% 
-\contentsline {subsection}{\numberline {3.3}Model interpretation and dynamic update}{11}{subsection.3.3}% 
-\contentsline {subsection}{\numberline {3.4}Model interpretation and dynamic update}{11}{subsection.3.4}% 
-\contentsline {section}{\numberline {4}Model Analysis}{12}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Sensitivity Analysis}{12}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {3.2.5}The fusion model based on the above three sub-models}{11}{subsubsection.3.2.5}% 
+\contentsline {subsection}{\numberline {3.3}Model interpretation and dynamic update}{12}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Model interpretation and dynamic update}{12}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}Model Analysis}{13}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Sensitivity Analysis}{13}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Advantages of the model}{13}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Disadvantages of the model}{13}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.3}Disadvantages of the model}{14}{subsection.4.3}% 
 \contentsline {subsection}{\numberline {4.4}Future improvements}{14}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}A Summary for the Washington State Department of Agriculture}{15}{section.5}% 
+\contentsline {section}{\numberline {5}A Summary for the Washington State Department of Agriculture}{16}{section.5}% 
+\contentsline {section}{Reference}{17}{section.5}% 
+\contentsline {section}{\numberline {6}appendices}{18}{section.6}% 
 \contentsfinish 
