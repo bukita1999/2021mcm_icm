@@ -410,120 +410,59 @@ First, consider our choice of metrics. The classification accuracy of the fusion
 
 % 制表
 
-We believe that the ultimate purpose of corporate decision-making is to maximize profitability in the next 50 years, and the migration of fish will lead to a decline in the profit of companies. Therefore, we think it is very important for a company to re-plan its strategy. We will give a risk decision-making model here to reflect the impact of different input ratios of multiple production factors on the final profit.
+From the above table, we can see that using our recommended parameter which are $\alpha$=0.3 and $\beta$=0.6, the fusion model has the highest recall rate. Although the recall samples are relatively small and may not reflect the subtle differences of the model, in any case, the EfficientNet model contributes the most to the fusion model. In addition, we can find that model fusion does improve the recall rate of the model to a certain extent, and the strategy of model fusion is successful.
 
-As for strategy one, with the migration of fish , fisheries companies' catches of fish may decrease year by year. It is a good strategy to move companies northward. The company's migration takes a lot of money, while increasing linearly with distance. But relocating the company once means that it will no longer be necessary to pay for it in the future.
+\subsection{Advantages of the model}
 
-The formula for the annual profit of this strategy is:
+\begin{enumerate}
+  \item This model comprehensively considers the distribution of bee hives, vegetation coverage, wasp habits and other factors to calculate the risk rating of each county in Washington. And then we establish a multi-modal report priority evaluation model based on the report's notes, pictures and sighting locations. Our fusion model takes a comprehensive consideration of factors and can accurately reflect the priority of reports.
+  \item Taking into account the small number of witness notes, the naive Bayes algorithm we use has stable classification efficiency, and performs well on small-scale data, and can be incrementally trained, which is more suitable for this classification task.
+  \item We use data enhancement skills to increase the number of positive pictures to increase the robustness and recognition effect of our image recognition model.
+  \item We have selected a suitable batch learning period, which can ensure that our model can be continuously optimized with the continuous increase of witness reports, so as to have a better performance effect.
+  \item Considering the existence of a large number of unlabeled samples, we use a semi-supervised model method to improve model performance.
+\end{enumerate}
 
-\begin{equation}\label{1}
-  I_{ij} - O_{ij} = h * q_{ij}
-  \end{equation}
+\subsection{Disadvantages of the model}
+\begin{enumerate}
+  \item In the risk assessment model based on sighting locations, our risk assessment based on hive density and vegetation coverage is based on the county as a unit. The measurement scale is too large, which may lead to overestimation or underestimation of actual risks in certain areas.
+  \item The notes classification model based on Naive Bayes only calculates the probability that the note is a negative sample based on the statistical results. This is effective in limited notes, but it may make classification result invalid when a new negative note that has not been seen arrives.
+  \item In the image classification model based on EfficientNet, although we have increased the number of positive pictures through data enhancement skills, the number of positive pictures is still very small, which will lead to weak generalization or overfitting of the image classification model.
+  \item We did not solve the problem that the main body of the Asian giant hornet in the picture is not prominent. For example, the main body of the Asian giant hornet in many pictures is very small, or the Asian giant hornet in the picture is blurred. This problem may reduce the accuracy of the image classification model.
+  \item In the image classification model based on EfficientNet, we only deal with image and video formats, and directly discard reports in other formats, which may result in the loss of important emergency reports.
+\end{enumerate}
 
-The formula for the accumulative annual profit of this strategy is:
+\subsection{Future improvements}
 
-\begin{equation}\label{2}
-  \sum_{i=y_0}^{y_f} (I_{ij} - O_{ij}) = \sum_{i=y_0}^{y_f} (h * q_{ij}) - k*m
-  \end{equation}
-  
-As for strategy two, by purchasing small fishing vessels with independent fresh-keeping capacity, the company's operating efficiency can be improved, the fishing output and freshness can be increased, and the annual income can be increased. The cost of buying fishing vessels in the early stages of this decision is much less than the cost of relocating the company, but this also is an annual maintenance fee and wage increase.
+\begin{enumerate}
+  \item The risk assessment model based on the sighting location should focus on estimating the risk of a certain area on a more refined scale in the future.
+  \item We may build a Knowledge Graph about the Asian giant Hornet based on 2021MCM\_ ProblemC\_ Vespamandarinia.pdf, and then extract the description in the notes to judge the classification based on the knowledge graph. This will greatly improve the accuracy of the notes classification, but it will take a lot of time and energy.
+  \item We can obtain more positive pictures through Google Pictures or other databases to improve the generalization ability of the image recognition model.
+  \item We can use R-CNN, YOLO or other target detection models to extract the Asian giant Hornet in the image before applying the image classification model, and then use the EfficientNet image classification model to obtain better image recognition results.
+  \item We will improve our model by trying more image and text classification baseline models.
+  \item We need to spend time programming to automatically extract various format files as pictures.
+\end{enumerate}
 
-The formula for the annual profit of this strategy is:
 
-\begin{equation}\label{3}
-  I_{ij} - O_{ij} = h * q_{ij} * (1+b*n) - n*r
-  \end{equation}
 
-The formula for the accumulative annual profit of this strategy is:
 
-\begin{equation}\label{4}
-  \sum_{i=y_0}^{y_f} (I_{ij} - O_{ij}) = \sum_{i=y_0}^{y_f} (h * q_{ij}* (1+b*n) - n * r ) - n * g
-\end{equation}
-  
 
-Where:
 
-$O_{ij}$ is the cost of company j in year i;
-
-$I_{ij}$ is the income of company j in year i;
-
-$h$ is the income per unit of fish;
-
-$q_{ij}$=0 the number of units of fish in company j in year i;
-
-$k$ is the company's relocating price per unit distance;
-
-$m$ is the distance the company moved;
-
-$b$ is the efficiency improvement module when using small fishing vessels;
-
-$n$ is the number of fishing vessels purchased;
-
-$r$ is the monthly maintenance fee;
-
-$y_0$ is the beginning year;
-
-$y_f$ is the ending year;
-
-Except for the distance the company migrates and the number of fishing vessels purchased is determined by the company's decision, the other quantities are parameters that are not affected by human will.
-
-\subsubsection{Proper Strategies to Take}
-By rationally setting the parameters, we can judge the profitability of these two strategies in the next 50 years. It can be observed through the formula that if strategy one is adopted, although the initial revenue is not ideal, the cost of moving the company is a great burden. However, in the later period, due to the migration of fish, production gradually increased, and eventually the accumulated income was higher. With the second strategy, income was initially increased due to the use of new fishing vessels. However, when fish schools moved, not only output began to decline, but also the cost of additional small fishing vessels got higher.
-
-Although the whole profit of first strategy is seemed to be higher than the second strategy in terms of final returns, the second strategy may be the optimal choice for companies with limited financing capabilities. The decisions of other companies may also have an impact on themselves. The aggregation of fishery companies will cause losses to each other. The flexibility of strategy two can come in handy. The specific strategy to be adopted depends on the actual situation of the company.
-
-\subsection{Impact of foreign territorial seas on the benefits}
-Observing Scotland's continental location, we can see that there are almost no territorial waters in other countries near the east-west direction. What we only need to consider is the territorial waters of the Irish territorial waters in the south and the Faroe Islands in the north. According to the previous research conclusions: about every 20 years, the school of fish moves northward by one degree of latitude, then about 50 years later, some fish will enter the waters of the Danish Faroe Islands. But the waters of the Faroe Islands are very far away from these fishing companies, so this part of the school of fish is not in our consideration. Therefore, if a certain proportion of fishery enters the territorial sea of another country, it will have little effect on the model we have established earlier.
-
-\section{The Evaluation of Model and Further Discussion}
-
-\subsection{Strengths}
-
-\begin{itemize}
-  \item From the perspective of animal ethology, it's reasonable to analyze the migratory habits of fish and establish modeling;
-  \item Using the method of computer simulation and computer simulation through a large amount of data, easily avoiding the complicated internal mechanism of fish migration;
-  \item In order to avoid accidental errors, the computer simulation was repeated 10 times each year;
-  \item Establish a seawater temperature change model by collecting seawater temperature and known climate changes, which can perfectly predict the water temperature changes in the waters around Scotland;
-  \item The parameters in the model can be adjusted according to the changes of the ecological environment, which is suitable for different sea areas;
-\end{itemize}
-
-\subsection{Weaknesses}
-\begin{itemize}
-  \item For the convenience of modeling, the water temperature distribution uses a 20X10 grid, which will inevitably affect the accuracy;
-  \item It is difficult to avoid the influence of subjective consciousness because some parameters of the model are artificially set;
-  \item Temperature changes are in annual units, without taking into account the effects of seasonal fish tour and seasonal fishing;
-  \item Only the temperature change of seawater at 50m underwater was simulated, and the conditions of different water layers and the effects of ocean currents were not considered;
-\end{itemize}
-
-\subsection{Further Application and Extension}
-According to our interpretation of the topic, we can know that our model is to predict the integral behavior of the group, and to simulate the integral behavior of the integral regularity by simulating the random behavior of the individual.
-
-The situation described in this question is similar to the marine life in other areas in many cases. Therefore, this model has the potential of Scale-out first. It can not only predict the migration direction of Scottish herring and mackerel along the Scottish coast, but also The research object has been modified and promoted to predict the migration direction of marine animals in any sea area in the world, which can effectively provide fisheries companies in various places to the north of various natural fishing grounds, reduce the losses of fishery companies, and maintain the company as much as possible .
-
-In addition, we can also expand our model vertically. Seawater temperatures are known to decrease with increasing depth, and deeper waters may be the second choice for mackerel and herring. But at the same time, the water pressure will gradually increase, so the habitat of mackerel and herring may change within a limited range and depth. If a depth consideration is added to the original model, the matrix used to describe the temperature of the sea and the distribution of the current fish will be expanded to three dimensions. Although the amount of calculation is increased by one dimension, the comprehensiveness and accuracy of the model's calculation results are increased. 
 \newpage
-\section{Article for Hook Line and Sinker Magezine}
-\begin{center}
-\textbf{What's Next for Scottland Fishing}
-\end{center}
+\section{A Summary for the Washington State Department of Agriculture}
 
-Scottish herring and mackerel contribute greatly to the economy of Scottish fisheries. In order to better understand the related issues that these two fish may migrate from existing habitats near Scotland, our team have done some research and hope to help Scottish fishermen understand how seriousness of  the problem. In addition, we have proposed some solutions, hoping to improve their future business prospects.
 
-Based on computer simulation methods, our team predicted the most likely locations for these two fish species in the next 50 years based on water temperature changes over 50 years and the habits of herring and mackerel. In addition, by simulating the profit and loss data of small fisheries companies choosing different strategies for a period of time in the future, we identify and evaluate strategies that are practical and economically attractive to small fisheries companies.
+Vespa mandarinia has invaded Washington state. This insect tends to destroy bee population and affect human safety due to its bite, which poses a threat to human health and safety of ecosystem, agricultural sector and the areas around their nesting sites. In order to help the Ministry of agriculture eliminate this alien species, we established a model of hornet distribution over time and a priority evaluation model of eyewitness reports. Our fusion model  leads to prioritizing investigation of the reports most likely to be positive sightings.
 
-The result of our technical analysis is: With global warming, schools of fish in Scottish waters are moving north by 1 degree latitude every 20 years.
+The life cycle of Vespa mandarinia begins with the nesting of a queen after overwintering. During this period, the queen develops nests, collects and feeds on arthropods and tree sap, and prepares to lay eggs. The colony begins in the summer, the queen takes care of her cubs, and the workers finally begins to appear. Once the queen has enough workers, the responsibility of predation is completely transferred to the workers, while the queen stays in the nest and continues to lay eggs.
 
-Our team have compiled the water temperature data for Scotland from 2000 to 2017, and then analyzed the data to find that the global water temperature has a rising trend, and this trend has become faster and faster in recent years. The temperature of the upper 2000 meters of the global ocean in 2019 is 0.075 degrees Celsius higher than the average state of 1981-2010. The heat content of the upper 2000 meters of the ocean in 2019 is 25 * 1021 joules higher than in 2018, setting a new historical record. During the period 1987-2019, the average ocean warming rate was 450\% during the period 1955-1986, showing a continuous trend of accelerated ocean warming. Marine organisms are very sensitive to the temperature of seawater. Each organism has a critical temperature range for its growth and reproduction. The temperature controls the enzyme reactions that affect digestion through hormones and nerves. At the same time, the increase in temperature will increase the toxicity of toxic substances in the water, driving fish away from the originally suitable sea area to the sea area with a more suitable temperature. In the southern part of Scotland, there will be no fish to supplement due to the decrease in the number of fish. About 50 years later, Argyll \& Clyde fishing grounds will not be harvested. About 200 years later, most fishing grounds including Shetland Isles fishing ground It will not be harvested, and Scottish fisheries production will cause huge losses.
+Based on the above-mentioned habits of Vespa mandarinia , we studied the population distribution of Vespa mandarinia  over time. After a limited number of samples, we can draw a conclusion that there are three possible migration routes of Vespa mandarinia  and a key area for the emergence of hornets. Because the above conclusions only consider the rules in the real samples of Vespa mandarinia, we also evaluated the bee hive density, vegetation coverage, geography and topography in various counties of Washington state, so as to revise the previous conclusions. As the prey of Vespa mandarinia is mainly bees, and the nesting sites of Vespa mandarinia  are inseparable from vegetation, we should pay more attention to the counties that meet these conditions.
 
-As for this case, our team have proposed two feasible solutions  in order to improve their future business prospects.
+Our model is a fusion model weighted by three sub-models. If the corresponding sub-model has no input data, the default output value is 0.5. Now, according to the pictures provided by the witnesses, the labels of the witnessing insects can be prioritized. If the witnesses do not provide any picture, the position coordinates reported by the witnesses are still of great significance to our investigation. Combined with the distribution of the Asian giant Hornet over time, we can obtain the possibility of finding Asian giant Hornet in the sighting location. If the eyewitness only provides notes, we use the notes classification model to make the final judgment, but the score of this model does not take much weight. There are too much dirty information and too many subjective factors in the notes, which is not conducive to the objective evaluation of the model.
 
-The first solution is to transfer some or all of a fishing company's assets from a current location in a  Scottish port to a closer to where both fish populations are moving; the second solution is to use a certain percentage of small fishing vessels to expand the fishing company's operating radius to ensure the fish's freshness and quality. 
+The output of our fusion model represents the priority processing level of the report. If it is higher than the threshold 0.46, the staff should give priority to processing its report. As time goes by, the number of reports available for training will gradually increase. In order to ensure that the performance of the fusion model can continue to improve, we need to update the fusion model in a batch learning manner. We recommend that the condition that triggers the model update should be 400 newly collected reports, and it takes about 20 days to update.
 
-We identify and evaluate strategies adopted by small-scale fisheries companies based on  risk decision-making model. We found that the goal of the decision was to maximize profits in the next 50 years, and then combined the changes in the distribution of the fish school to calculate the profit for each of the two solutions. We found that the initial investment in the relocation of the solution one company is relatively large, but the subsequent increase in output can make up for this loss. In the long run, solution one is better than solution two. The initial investment of solution two is related to the number of small fishing vessels. This investment is less than the initial investment of solution one. It is a feasible solution for enterprises with insufficient assets. As for solution two, due to the increase in fishing equipment, the company's annual  expenditure will be more High, and fish catches will still slowly decrease as the fish school moves north. 
+Finally, we evaluated the priority of the reports with unprocessed and unverified labels and found that only a small number of reports scored slightly greater than 0.5. Under the premise of conforming to the laws of statistics, we are confident that the Asian Hornet has been eradicated in Washington State. The activity of the Asian giant hornet gradually decreases in late autumn, and the queen bee needs to experience a long overwintering period. From the information on the official website, we found that no sample of Asian Hornet has been found in the almost three months since mid-November last year. It can be assumed that the pest has been eradicated in Washington State.
 
-In addition, solution one may be better in the long run, but companies with small volumes can consider solution two. The decisions of other companies may also have an impact. The agglomeration of companies may cause losses to each other and the flexibility of solution two can come in handy. It is useful to decide which strategy to adopt based on the actual situation of the company.
-
-The water temperature in Scotland is warming, and the school of fish is slowly migrating to the north. It is hoped that fishing companies which are aware of the seriousness of the problem can choose appropriate strategies based on actual conditions to improve the future fishing environment in Scotland.
 
 \newpage
 \addcontentsline{toc}{section}{Reference}
