@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.2.14)  8 FEB 2021 13:20
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.2.14)  8 FEB 2021 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -871,28 +871,32 @@ Make it at least 13.59999pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[1] [2]
-Overfull \vbox (9.76118pt too high) has occurred while \output is active []
+[1] [2] [3]
+Missing character: There is no ’ in font pplr8t!
 
- [3]
+
+Package natbib Warning: Citation `REF1' on page 4 undefined on input line 226.
+
 File: ./picture/1_1.png Graphic file (type bmp)
 <./picture/1_1.png>
+[4]
 File: ./picture/1_2.png Graphic file (type bmp)
 <./picture/1_2.png>
+Missing character: There is no ’ in font pplr8t!
 File: ./picture/1_3_1.png Graphic file (type bmp)
 <./picture/1_3_1.png>
- [4]
+ [5]
 File: ./picture/FP.png Graphic file (type bmp)
 <./picture/FP.png>
- [5]
+ [6]
 File: ./picture/1_4.png Graphic file (type bmp)
 <./picture/1_4.png>
- [6]
+ [7]
 File: ./picture/1_5.png Graphic file (type bmp)
 <./picture/1_5.png>
 File: ./picture/1_6.png Graphic file (type bmp)
 <./picture/1_6.png>
- [7]
+ [8]
 File: ./picture/1_7.png Graphic file (type bmp)
 <./picture/1_7.png>
 Missing character: There is no   in font cmr12!
@@ -913,12 +917,12 @@ Missing character: There is no   in font cmr12!
 Missing character: There is no   in font cmr12!
 Missing character: There is no   in font cmr12!
 Missing character: There is no   in font cmr12!
- [8]
+ [9]
 File: ./picture/1_8.png Graphic file (type bmp)
 <./picture/1_8.png>
 File: ./picture/1_9.png Graphic file (type bmp)
 <./picture/1_9.png>
- [9]
+ [10]
 File: ./picture/1_10.png Graphic file (type bmp)
 <./picture/1_10.png>
 File: ./picture/1_11.png Graphic file (type bmp)
@@ -929,25 +933,28 @@ File: ./picture/1_13.png Graphic file (type bmp)
 <./picture/1_13.png>
 File: ./picture/1_14.png Graphic file (type bmp)
 <./picture/1_14.png>
- [10] [11]
+ [11] [12]
 File: ./picture/2_1.png Graphic file (type bmp)
 <./picture/2_1.png>
- [12] [13] [14] [15]
-Overfull \hbox (1.13507pt too wide) in paragraph at lines 533--534
+ [13] [14] [15] [16]
+Overfull \hbox (1.13507pt too wide) in paragraph at lines 548--549
 []\T1/ppl/m/n/12 For the con-ve-nience of mod-el-ing, the wa-ter tem-per-a-ture dis-tri-bu-tion uses a 20X10
  []
 
-[16] [17] [18] [19]
+[17] [18] [19] [20]
 No file Main.bbl.
 
 AED: lastpage setting LastPage
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 576.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 576.
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 591.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 591.
 (./Main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 576.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 576.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 591.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 591.
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: 1FC5DCE6941CAB7B32D2807E6A16F7EF.
+(rerunfilecheck)             Checksum: B239D768ACFF1AF066884775402A9D3D.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -955,11 +962,11 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  25704 strings out of 492922
- 448446 string characters out of 6133407
- 718223 words of memory out of 5000000
+ 448434 string characters out of 6133407
+ 719223 words of memory out of 5000000
  29404 multiletter control sequences out of 15000+600000
  566870 words of font info for 113 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 36i,12n,67p,1516b,797s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,67p,1516b,877s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Main.pdf (21 pages).
+Output written on Main.pdf (22 pages).

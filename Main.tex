@@ -163,11 +163,7 @@ We use our model to evaluate the priority of reports with unprocessed and unveri
 
 
 \end{itemize}
-% 1.假设鲱鱼或者鲭鱼的数量总体不变，人类的捕捞速度与鱼群繁衍速度基本持平。
-% 2.假设鲱鱼或鲭鱼应对水温变化的措施只有发生水平位置迁徙，并倾向于向适宜温度的方向进行迁徙。
-% 3.假设水温变化和迁徙路程足够影响鲱鱼或者鲭鱼种群迁徙到某一邻近位置的概率。
-% 4.假设全球气候变暖海洋升温的趋势未来200年不发生改变。
-% 5.假设小型渔业公司的作业半径有限，并且所有公司作业半径相同。
+
 
 \subsection{Symbols Definitions}
 
@@ -185,7 +181,7 @@ $B$      & A Plain Bayesian-based Notes Classification Model
 $C$     & A EfficientNet-based Picture Classification Model
                                                         \\
 $D$       & The fusion model of the above three single models                                                       \\
-$S_i$      & The priority score of model i, the value range is 0-1, 1 corresponds to the highest priority
+$S_i$      & The priority score of model i, the value range is $0 \sim 1$, 1 corresponds to the highest priority
                                                             \\
 $(x_0,y_0)$       & The center coordinate of the key area
                                  \\
@@ -194,14 +190,19 @@ $r_0$       & The radius of the key area
 $(x,y)$       & The sighting location, x represents latitude and y represents longitude
 \\
 $r$       & The distance from the sighting location to the center of key area \\
-$F_1$       & The risk score based on the distance from the key area, the value range is 0-1, 1 corresponds to the highest risk level \\
-$F_2$      &  The risk score based on the number of bee hives and vegetation coverage, the value range is 0-1, 1 corresponds to the highest risk level
+$F_1$       & The risk score based on the distance from the key area, the value range is $0 \sim 1$, 1 corresponds to the highest risk level \\
+$F_2$      &  The risk score based on the number of bee hives and vegetation coverage, the value range is $0 \sim 1$, 1 corresponds to the highest risk level
 \\
+$\gamma$      &  The weight of $F_1$ in model A, the range is $0 \sim 1$
 
-$k$       & The company's migration price per unit distance
 \\
-$h$       & The income per unit of fish                                                                \\
-$b$       & The efficiency improvement factor when using small fishing vessels                         \\
+$\alpha$       & The weight of model A in model D, the range is $0 \sim 1$
+
+\\
+$\beta$       & The weight of model B in model D, the range is $0 \sim 1$
+\\
+$1-\alpha-\beta$       & The weight of model C in model D, the range is $0 \sim 1$
+\\
                                                         \\ \hline
 
  \end{longtable}
@@ -209,23 +210,37 @@ $b$       & The efficiency improvement factor when using small fishing vessels  
 
 
 \section{Establishment and Solution of Model}
-\subsection{The Model for the First Question}
-\subsubsection{The Regional Sea Temperature Model}
-We divided the range \ang{52} N \textasciitilde \ang{62} N, \ang{0} W \textasciitilde \ang{10} W into 20 small squares into a $20 \times 10$ grid, as is shown in figure \ref{RealMap}.
+\subsection{Modeling changes in the distribution of Asian hornets}
+
+The life cycle of an Asian giant hornet begins with a queen’s nest building after overwintering. During this period, the queen develops a nest, collects and eats arthropods and sap, and prepares to lay eggs. The colony begins in summer, the queen takes care of her cubs, and worker ants finally begin to appear. Once the queen has produced enough workers, the responsibility of predation is completely transferred to the workers, and the queen stays in the nest to continue laying eggs.
+
+
+In order to estimate the risk of Asian giant hornet to Washington, we have carried out a risk rating for each county in Washington. The reference standards are as follows: 
+\begin{enumerate}
+  \item Winter climate suitability
+  \item Whether the habitat is suitable for Asian giant hornet colonization nests (This is based on the dense forest biomass)
+  \item The hive density of the counties
+  \item The path (main port or freight hub) that may introduce Asian Hornet
+\end{enumerate}
+
+Because the prey objects of Asian giant hornet are mainly honeybees, and the nesting and reproduction of Asian giant hornet are inseparable from trees and vegetation, we recommend that the Washington government pay more attention to counties with a large number of hives, extensive vegetation coverage, and convenient transportation. We consulted relevant information \cite{REF1} and sorted out the number of hives and vegetation coverage in each county in Washington. The following figure shows the corresponding data:
+
 
 
 \begin{figure}[H]
   \centering{
-  \includegraphics[width=3cm]{./picture/1_1.png}}
-  \caption{The Realistic Map Around Scotland}\label{RealMap}
+  \includegraphics[width=12cm]{./picture/1_1.png}}
+  \caption{Total hives of each county in Washington}\label{1_1}
 \end{figure}
 
-Then we abstracted the edges of the continent and the surrounding waters, as is shown in Figure \ref{AbstractMap}.
 \begin{figure}[H]
   \centering{
-  \includegraphics[width=3cm]{./picture/1_2.png}}
-  \caption{The abstacted map of the continent and the surroundting waters around Scotland}\label{AbstractMap}
+  \includegraphics[width=12cm]{./picture/1_2.png}}
+  \caption{The dense forest biomass score of each county in Washington}\label{1_2}
 \end{figure}
+
+From the above two pictures, we can check the number of hives and the level of vegetation coverage in each county. In addition, we need to consider the county’s transportation convenience level and winter climate comfort. After considering these standards, we will sum up the scores in these four categories and the final score obtained is the risk grade score of the county (appendix quoted table). So far, we can give a risk score to each location in Washington State, and the score only depends on the above four criteria for that location. We denote the risk score of the location of latitude $x$ degrees and longitude $y$ degrees as $F_1(x,y)$.
+
 
 The reader can compare the following figure \ref{FisheriesAround} with the information of the fishery we chose to discuss, which are shown in the table \ref{FisheryTable}.
 \begin{figure}[H]
