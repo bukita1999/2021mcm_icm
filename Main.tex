@@ -121,44 +121,46 @@ This article discusses the spread of Asian giant hornets over time and hopes to 
 \begin{itemize}
   \item \textbf{Address and discuss whether or not the spread of this pest over time can be predicted,and with what level of precision.}
   
-  First, we analyze the living habits and determine the suitable living environment of Vespa mandarinia. Then we comprehensively consider the distribution of bee hives in each county in Washington State, vegetation coverage, traffic topography and other factors, and score the basic situation of each county in Washington State. Combining these objective factors and a small amount of wasp sighting samples, we can easily analyze the distribution of this pest over time. Considering that the number of positive samples is less than 20 and the distribution area is very cramped, we can roughly divide the key areas of Asian giant hornet distribution and the possible migration routes over time. The accuracy of the model can be measured by analyzing the number of positive samples that fall in the area.
-  \item Most reported sightings mistake other hornets for the Vespa mandarinia. Use only the data set file provided, and (possibly) the image files provided, to create, analyze, anddiscuss a model that predicts the likelihood of a mistaken classification.
- \item How our proposal is affected if some proportion of the fishery moves into the territorial waters(sea) of another country.
- \item Prepare an article for magazine to help fishermen.
+First, we analyze the living habits and determine the suitable living environment of Vespa mandarinia. Then we comprehensively consider the distribution of bee hives in each county in Washington State, vegetation coverage, traffic topography and other factors, and score the basic situation of each county in Washington State. Combining these objective factors and a small amount of wasp sighting samples, we can easily analyze the distribution of this pest over time. Considering that the number of positive samples is less than 20 and the distribution area is very cramped, we can roughly divide the key areas of Asian giant hornet distribution and the possible migration routes over time. The accuracy of the model can be measured by analyzing the number of positive samples that fall in the area.
+  
+  \item \textbf{Most reported sightings mistake other hornets for the Vespa mandarinia. Use only the data set file provided, and (possibly) the image files provided, to create, analyze, and discuss a model that predicts the likelihood of a mistaken classification.}
+
+Most of the samples were mistaken as Vespa mandarinia by eyewitnesses, and these samples wereted a lot of staff confirmation time. Therefore, it is necessary to determine the priority of the report through the pictures, notes, sighting location, time and other information provided in the eyewitness report. For this multi-modal binary classification model, we obtain the report priority through the weighted fusion of the three sub-classification models. Specifically, we use EfficientNet to complete the two classification of images, use Naive Bayes to complete the two classification of notes, and use the risk assessment model to complete the two classification of sighting locations. 
+  
+First, we format the original data, clean the data, and then segment the data according to different sub-model requirements. In addition, it is necessary to appropriately expand the positive samples to solve the problem of sample imbalance. For the picture classification model, data enhancement is also needed to enhance the robustness of the model. For pictures with more unprocessed and unverified tags, a semi-supervised learning method is used to complete the two classification in the iterative process. Finally, we sum up the scores of the three sub-models as the final score.
+
+
+  \item \textbf{Use your model to discuss how your classification analyses leads to prioritizing investigation of the reports most likely to be positive sightings.}
+
+The output of our model represents the priority level of the report. If it is higher than a certain threshold, the staff should give priority to it. The score priorities of the three sub-models are different. The image classification model has the highest priority, the sighting location risk assessment model is the second, and the comment classification model has the lowest priority.
+
+  \item \textbf{Address how you could update your model given additional new reports over time, and how often the updates should occur.}
+  
+The number of reports that can be used for training will gradually increase over time. In order to ensure that the performance of the model can continue to improve, we need to update the model in the manner of batch learning when the number of new samples reaches 400, about 20 days.
+
+  \item \textbf{Using your model, what would constitute evidence that the pest has been eradicated in Washington State?}
+
+We use our model to evaluate the priority of reports with unprocessed and unverified labels. If all priority of reports are lower than the default threshold and combining the living habits of the Vespa mandarinia, we can infer that the Asian giant hornet has been eradicated in Washington State with the statistical law.
+
 \end{itemize}
 
-\section{Problem Analysis}
-Question 1: 
 
-We need to build a mathematical model to determine where these two fish species are most likely to appear in the next 50 years. We need to first build a model to predict the changes in water temperature in the next 50 years. It is not necessary or possible to accurately predict the temperature of each point in the waters around Scotland. Therefore, we can divide some key large areas and combine our existing experience with previous data. The average annual temperature of these regions over the next 50 years is calculated. Water temperature change is the most significant factor to affect fish migration. In addition, fish migration is also related to the distance to the destination. The school of fish tends to migrate to an area where the water temperature is not much different from their favorite temperature. If the destination is near, the probability will also be larger. But it is difficult to directly discuss the change of fish school position in the next 50 years, computer simulation can be used to avoid the complicated internal mechanism. \cite{REF4}
-% 问题一：我们需要建立一个数学模型，以确定这两种鱼类在未来50年内最有可能出现的位置。我们需要先建立模型预测未来50年水温会发生的变化，没有必要也不太可能精确预测苏格兰附近海域每一点的温度，因此可以划分一些关键的大区域，结合我们现有的经验和以往数据拟合出未来50年这些区域的年均温。水温变化足够影响鱼群的迁徙，另外鱼群的迁徙还与到目的地的距离有关，鱼群倾向与向水温与它们的最喜温度相差不大的海域迁徙，如果目的地较近，这个概率也会更大，但是如果直接讨论未来50年鱼群位置的变化显得有些困难，因此可以采用计算机模拟的方式，避开其中的复杂内部机理。
-
-Question 2:
-
-The migration of fish is due to changes in water temperature, some small fisheries companies will not be able to replenish their fish and the arrival of this situation is not simultaneous for different fishery companies, which is related to the direction of fish schools migration and the company's geographical location. We can divide the waters around Scotland into several large fisheris. According to the prediction results of the question 1, calculate the annual fish content of each fishery in the next 50 years. We believe that all small fishing companies in the fishing ground are in the same situation. If the fishery content has dropped to a certain degree, and we can regard that small fishing companies in this range will not be able to harvest. By counting the year of arrival at this time, determine the best case and worst case.
-% 问题二：由于水温变化导致鱼群迁徙，一些小型渔业公司将会无法补到鱼，这一情况的到来对于不同的渔业公司并不是同时的，这与鱼群的迁移方向和公司的地理位置有关。我们可以把苏格兰附近海域划分为几个大的渔场，根据第一问的预测结果，统计出未来50年每个渔场每年的含鱼量，认为该渔场内的所有小型渔业公司处境相同，如果当年的渔场含鱼量下降到一定程度，我们可以认为该范围内的小型渔业公司将无法收获。通过统计这一时间的到来年份，确定最好情况和最坏情况。
-
-Question 3: 
-
-We need to identify and evaluate strategies that are practically and economically attractive to small fishing companies. The two options available include company relocation and the deployment of small fishing vessels. The advantages and disadvantages of these two strategies need to be considered comprehensively. As a typical risk decision-making problem, we need to first determine the goal of the decision, which is to maximize the company's profit in the future. The factors that need to be considered include the annual fishing volume, initial investment and subsequent investment. The annual fishing volume can be introduced based on the results of the previous questions. The initial investment in the company's relocation should be positively related to the distance of the relocation, and it is generally higher than the initial investment of small fishing vessels. Increased investment. Which strategy is adopted may also take into account the company's assets and other fishery companies' decisions.
-% 问题三：我们需要确定和评估对小型渔业公司具有实际和经济吸引力的战略，可选的两种策略包括公司搬迁和配备小型渔船，这两种策略的优劣势需要综合考虑。作为典型的风险决策问题，我们需要首先确定决策的目标，即未来一段时间内公司利润最大化，需要考虑的因素包括每年的捕鱼量，初始投入和后续投入。其中每年的捕鱼量可以根据前几问的结果推出，公司搬迁的初始投入应该与搬迁的距离正相关，而且一般比配备小渔船的初始投入要高，但是小渔船数量的增加势必会造成后续投入的增加。具体采用哪种策略可能还要综合考量公司的资产情况，其它渔业公司的决策等。
-
-Question 4:
-
-If a certain proportion of fish schools enter the territorial sea of other countries, the fishery resources of this part will be lost, but the specific impact should be analyzed in combination with Scotland's geographical location and fish school distribution changes.
-% 问题四：如若一定比例鱼群进入他国领海，则该部分渔业资源将会损失，但是具体影响要结合苏格兰的地理位置和鱼群分布变化进行分析。
 \section{Assumptions and Symbols Definitions}
 \subsection{Assumptions}
 
 \begin{itemize}
-\item Assumed that the number of herring or mackerel is generally unchanged, the fishing rate of humans is basically the same as the rate of fish reproduction.
-\item Assumed that herring or mackerel's measures to cope with changes in water temperature are only horizontal position migration, and tend to migrate in the direction of the appropriate temperature.
+\item It is assumed that that the data is true and valid and the source is reliable.
 
-\item Assumed that changes in water temperature and migration distance are sufficient to affect the probability of herring or mackerel populations migrating to a nearby location.
+\item It is assumed that the migration of Vespa mandarinia over time is completely determined by its living habits and environment.
 
-\item Assumed that the trend of global warming and ocean warming will not change in the next 200 years.
+\item It is assumed that every position of Asian giant hornet can be immediately discovered by witnesses.
 
-\item Assumed that small fishing companies have a limited operating radius and that all companies have the same operating radius.
+
+\item It is assumed that the manually constructed positive sample and the real sample have the same distribution.
+
+
+\item It is assumed that the fusion model can always break through the data bias of a single model.
+
 
 \end{itemize}
 % 1.假设鲱鱼或者鲭鱼的数量总体不变，人类的捕捞速度与鱼群繁衍速度基本持平。
@@ -176,14 +178,15 @@ If a certain proportion of fish schools enter the territorial sea of other count
 Symbol& Meaning \\
 \hline
 
-$p(x,y)$      & Probability of fish school migrating to (x, y) position
+$A$      & A eyewitness location-based Risk assessment model
                                                          \\
-$t_0$      & Favorite temperature for herring or mackerel
+$B$      & A Plain Bayesian-based Notes Classification Model
                                                           \\
-$t$     & Sea temperature
+$C$     & A EfficientNet-based Picture Classification Model
                                                         \\
-$y$       & Year                                                           \\
-$d$      & Distance of fish migration                                                            \\
+$D$       & The fusion model of the above three single models                                                       \\
+$S_i$      & The priority score of model i, the value range is 0-1, 1 corresponds to the highest priority
+                                                            \\
 $O_{ij}$       & The cost of company j in year i                                  \\
 $I_{ij}$       & The income of company j in year i                                         \\
 $q_{ij}$       & The number of units of fish in company j in year i
