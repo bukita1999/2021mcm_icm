@@ -310,7 +310,7 @@ The accuracy of the model can be measured by analyzing the number of positive sa
 In the above distribution model over time, we can see that sighting location do help us determine the risk rating of the report. Next we will specifically explain the risk assessment model based on the reported sighting location. We believe that the score of this sub-model is a weighted score of the distance to the key area and the risk rating score of the county. In order to simplify the processing, we use the following formula to express:
 
 \begin{equation}
-    S_{A(x,y)} = \gamma F_1(x,y)+ (1-\gamma) F_2(x,y)
+    S_{A(x,y)} = \gamma F_{1(x,y)}+ (1-\gamma) F_{2(x,y)}
 \end{equation}
 
 The score of model A at position (x, y) should be weighted by F1 score and F2 score according to the coefficient gamma. 
@@ -358,42 +358,58 @@ After that, we will use the Naive Bayes algorithm to evaluate the misleadingness
 
 We assume that the appearance of these high-frequency words is independent, because the naive Bayes algorithm requires that each feature be independent of each other. We can calculate the probability of being misled by witnesses under the premise that certain high-frequency vocabulary appears directly based on the conditional probability formula without training the model. Now for any report, if it contains a note, we can get the probability that the report was misled so as to infer the probability that the report does belong to the Asian giant Hornet. If notes are not provided,  this sub-model is set to be the default score 0.5. Considering that notes are dirty, this model will take the smallest part of the weight in the fusion model.
 
-\begin{table}[!htbp]
-  \centering
-  \begin{tabular}{|r|c|c|c|c|c|}% 通过添加 | 来表示是否需要绘制竖线
-  \hline  %在第一行和第二行之间绘制横线
-   & \textbf{Argyll} & \textbf{Orkney} & \textbf{Outer} & \textbf{Shetland} &\textbf{North}\\
-  \hline % 在表格最下方绘制横线
-  2017 & 70 &35 &32&40&88\\
-  \hline % 在表格最下方绘制横线
-  2030 & 57&32&26&31&78\\
-  \hline % 在表格最下方绘制横线
-  2040  & 54&30&28&21&69\\
-  \hline % 在表格最下方绘制横线
-  2050 &28&19&32&24&56\\
-  \hline % 在表格最下方绘制横线
-  2060 &22&24&39&25&42\\
-  \hline % 在表格最下方绘制横线
-  2070 &8&19&35&31&31\\
-  \hline % 在表格最下方绘制横线
-  \end{tabular}
-  \caption{Fish production matrix in each fishery around Scotland within 50 years}
-  \label{FisheryTable}
-  \end{table}
+\subsubsection{EfficientNet-based image classification model}
 
-We found that the fish production of most fisheris is decreasing year by year, and it is related to the geographical location of the fisheris: the latitude of the fishery , the depth of the water area, whether there are other fisheris near the low latitudes and  whether the location is necessary for fish migration all affect the change of fish production in the fishery. We adjusted the parameters in the model to simulate the most likely situation, and the result is as the figure above.
+The first we do is to sort out the image data and corresponding tags from the original data. Normal image data can be processed directly. For video files, we need to manually extract a picture containing bees. For other formats, we just discard them. We sorted out 3294 pictures of Negative ID, 14 pictures of Positive ID, and 97 pictures of Unprocessed and Unverified ID. Up to this point, the data set we have constructed still has the problems of inconspicuous picture subjects and uneven distribution of positive and negative samples.
 
-At best, 50 years later, the Argyll \& Clyde fishing grounds in Scotland are the first to fail to harvest.
+Since there are few (just 14) positive samples, we use image enhancement technology to expand the number of positive samples from 14 to 1,400. The specific techniques include random flip, rotation, brightness, contrast, color saturation, etc. Finally, the final image is scaled to $224 \times 224$, which can be used as the input of the following neural network. The following is a picture after image enhancement:
 
-Assuming that the fish production of a certain fishery is lower than 20\% of the initial production, we regarde that the area will not be able to harvest. According to the statistical results, the production of southest fishery Argyll \& Clyde is less than 20\% of its initial value after about 50 years. From this we can see that if the Argyll \& Clyde fishery does not change its business strategy, its performance will continue to decline and eventually unable to operate. It can be observed from the figure that when the Argyll \& Clyde fishery is facing a crisis, the production of the Outer Hebrides fishery and the Shetland Isles fishery has increased slightly, indicating that some of the fish migrating to the north of the Argyll \& Clyde fishery have entered a certain area in the north, which is a better situation.
+\begin{figure}[H]
+  \centering{
+  \includegraphics[width=5cm]{./picture/2_3.png}}
+  \caption{Picture after image enhancement}\label{sohfwaf}
+\end{figure}
 
-At worst, most fisheries, including Shetland Isles, will not be harvested after 200 years.
+Considering that there are only about 100 unlabeled samples, we do not need to adopt a complex semi-supervised learning model, so we only adopt a relatively simple semi-supervised learning method of direct learning. The model assumes that the unlabeled samples are exactly the data to be predicted and only predicts the unlabeled data observed during the learning process, trains these newly labeled unlabeled samples with the previous sample data, and repeats this process until the accuracy of the model no longer improves.
 
-Based on the trend of global temperature warming and the data of the average sea temperature change in the sea area near Scotland in the past 5 years, we can conclude that the growth rate of its water temperature is increasing year by year. We have to consider the worst case, that is, almost all small fishing companies have no fish to be harvested. Based on this situation, we have adjusted the model parameters of seawater temperature changes to comply with the trend of accelerated global warming and extended the forecast time. In the previous model, we knew that every 20 years, the school of fish moved north by one latitude. Based on the adjusted model, we used the estimated method to get the worst case: 200 years later, most fisheries, including Shetland Isles, will not be harvested.
+%做表
 
-\subsection{Feasible Strategies for Local Fisheries Companies}
+The processed pictures are fed to neural network training for two classification, and the network output is the probability that the picture belongs to the Asian giant Hornet. After a long period of training, the accuracy of our two-class model reached $96\%$. In order to ensure that the pictures of PositiveID tags are not missed while considering accuracy, we independently verified the recall rate of these 14 pictures, and the model finally classified 13 pictures correctly.
 
-\subsubsection{Analysis and Formula}
+Now for any report, if it contains a picture, we can directly enter the picture to get the score of the picture classification model. If the report does not provide a picture, we default the score of the picture classification model to 0.5. The score of EfficientNet-based picture $S_c(img)$, which will be fused with the other two sub-models and will account for most of the weight.
+
+\subsubsection{The fusion model based on the above three sub-models}
+
+The score of a single model always has limitations, but fusion of the above three sub-models can often improve the robustness of the fusion model. Since each sub-model only focuses on part of the information reported by the witnesses, although this results in a single model that is not so good, but this ensures that these sub-models are independent of each other and there is no correlation between the results, so the effect of the fusion model will be more prominent. Our fusion method uses a relatively simple voting method, and the fusion formula is as follows:
+
+\begin{equation}
+  S_{D(x_1 y_2 img,note)} = \alpha S_{A(x,y)}  + \beta S_{B(img)} + (1-\alpha-\beta)S_{c(note)}
+\end{equation}
+
+The sub-models A,B and C are weighted and summed according to the ratio of 
+
+%表格
+\subsection{Model interpretation and dynamic update}
+
+The output of our model represents the priority processing level of the report. You can see that the highest score is 0.593, so we suggest that if it is higher than the threshold 0.46, then the staff should give priority to processing the report. We believe that when the score of the fusion model is lower than 0.5, the report is most likely to be negative, but for the sake of safety, we recommend that the staffs of the Ministry of Agriculture give priority to all reports with a score greater than 0.46.
+
+
+\subsection{Model interpretation and dynamic update}
+
+The output of our fusion model represents the priority processing level of the report. If it is higher than the threshold 0.46, the staff should give priority to processing its report. If the reporter provides a picture, then the picture is the best description, and the score of the picture classification model has great reference value. But if the reporter doesn't provide a picture, then according to the neighborhood principle of the distribution of the Asian giant hornet colony, we need to consider the sighting location provided by the witness. Considering that there are too many mixed information in the notes and too many subjective factors, which are not conducive to the objective evaluation of the model, so the priority of notes classification model is the lowest.
+
+As time goes by, the number of reports available for training will gradually increase. In order to ensure that the performance of the fusion model can continue to improve, we need to update the fusion model in a batch learning manner. Specifically, we need to retrain a new version of the system on the basis of new data and old data, and then replace the old system. In order to ensure the timeliness of the model, the weight of the new data should be set larger. After comprehensive consideration, we believe that the condition that triggers the model update should be 400 newly collected reports, and it takes about 20 days to update.
+
+First, we use our model to evaluate the priority of reports with unprocessed and unverified tags. Our default score threshold is 0.5. When the sample score is lower than 0.5, we believe that the bee species corresponding to the report is not an Asian giant Hornet, even if there is a small amount the sample score is slightly greater than 0.5, and we are still confident that the Asian giant Hornet has been eradicated in Washington State under the premise of conforming to the statistical law. The active time of Asian giant hornet is in summer and autumn. The mating season starts in early autumn, and the activity of the colony gradually decreases in late autumn. The queen needs to experience a long overwintering period. Taking these factors into account, as well as the fact that no report of Asian giant hornet has been found for almost three months since mid-November last year, we can speculate that the pest has been eradicated in Washington State.
+
+\section{Model Analysis}
+\subsection{Sensitivity Analysis}
+Our three sub-models are independent of each other, so fusing them can often improve the robustness of the fusion model. We mentioned earlier that the default weights of these three sub-models are 0.3, 0.1, 0.6, and we will compare different $\alpha$ and $\beta$, hoping to find the best weight ratio.
+
+First, consider our choice of metrics. The classification accuracy of the fusion model is not that important here, because behind the high classification accuracy, the sample recall rate of the positive label may be very low, so that a large number of unimportant samples are likely to be classified correctly, but the most urgent Asian giant Hornet sample is misclassified. Therefore, we believe that the metric should be the recall rate of 14 Asian Hornet samples. The following table is our test results.
+
+% 制表
+
 We believe that the ultimate purpose of corporate decision-making is to maximize profitability in the next 50 years, and the migration of fish will lead to a decline in the profit of companies. Therefore, we think it is very important for a company to re-plan its strategy. We will give a risk decision-making model here to reflect the impact of different input ratios of multiple production factors on the final profit.
 
 As for strategy one, with the migration of fish , fisheries companies' catches of fish may decrease year by year. It is a good strategy to move companies northward. The company's migration takes a lot of money, while increasing linearly with distance. But relocating the company once means that it will no longer be necessary to pay for it in the future.

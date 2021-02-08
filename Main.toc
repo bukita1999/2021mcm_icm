@@ -10,13 +10,17 @@
 \contentsline {subsubsection}{\numberline {3.2.1}A risk assessment model based on the location of the sighting}{8}{subsubsection.3.2.1}% 
 \contentsline {subsubsection}{\numberline {3.2.2}A Plain Bayesian-based Review Classification Model}{9}{subsubsection.3.2.2}% 
 \contentsline {subsubsection}{\numberline {3.2.3}A Plain Bayesian-based Review Classification Model}{9}{subsubsection.3.2.3}% 
-\contentsline {subsection}{\numberline {3.3}Feasible Strategies for Local Fisheries Companies}{12}{subsection.3.3}% 
-\contentsline {subsubsection}{\numberline {3.3.1}Analysis and Formula}{12}{subsubsection.3.3.1}% 
-\contentsline {subsubsection}{\numberline {3.3.2}Proper Strategies to Take}{13}{subsubsection.3.3.2}% 
-\contentsline {subsection}{\numberline {3.4}Impact of foreign territorial seas on the benefits}{13}{subsection.3.4}% 
-\contentsline {section}{\numberline {4}The Evaluation of Model and Further Discussion}{14}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Strengths}{14}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Weaknesses}{14}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Further Application and Extension}{15}{subsection.4.3}% 
-\contentsline {section}{\numberline {5}Article for Hook Line and Sinker Magezine}{16}{section.5}% 
+\contentsline {subsubsection}{\numberline {3.2.4}EfficientNet-based image classification model}{11}{subsubsection.3.2.4}% 
+\contentsline {subsubsection}{\numberline {3.2.5}The fusion model based on the above three sub-models}{12}{subsubsection.3.2.5}% 
+\contentsline {subsection}{\numberline {3.3}Model interpretation and dynamic update}{12}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Model interpretation and dynamic update}{12}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}Model Analysis}{13}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Sensitivity Analysis}{13}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}Proper Strategies to Take}{15}{subsubsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.2}Impact of foreign territorial seas on the benefits}{15}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}The Evaluation of Model and Further Discussion}{16}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Strengths}{16}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Weaknesses}{16}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Further Application and Extension}{16}{subsection.5.3}% 
+\contentsline {section}{\numberline {6}Article for Hook Line and Sinker Magezine}{18}{section.6}% 
 \contentsfinish 

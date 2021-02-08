@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.2.14)  8 FEB 2021 18:57
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.2.14)  8 FEB 2021 21:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -720,7 +720,11 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (j:/texlive/texlive/2019/texmf-dist/tex/latex/titlesec/titletoc.sty
 Package: titletoc 2011/12/15 v1.6 TOC entries
 \ttl@leftsep=\dimen257
-) (./Main.aux)
+) (./Main.aux
+
+LaTeX Warning: Label `sohfwaf' multiply defined.
+
+)
 \openout1 = `Main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
@@ -902,37 +906,46 @@ File: ./picture/2_1.png Graphic file (type bmp)
  [9]
 File: ./picture/2_2.png Graphic file (type bmp)
 <./picture/2_2.png>
- [10] [11] [12] [13]
-Overfull \hbox (1.13507pt too wide) in paragraph at lines 476--477
+ [10]
+File: ./picture/2_3.png Graphic file (type bmp)
+<./picture/2_3.png>
+ [11] [12] [13] [14] [15]
+Overfull \hbox (1.13507pt too wide) in paragraph at lines 492--493
 []\T1/ppl/m/n/12 For the con-ve-nience of mod-el-ing, the wa-ter tem-per-a-ture dis-tri-bu-tion uses a 20X10
  []
 
-[14] [15] [16] [17]
+[16] [17] [18] [19]
 No file Main.bbl.
 
 AED: lastpage setting LastPage
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 519.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 519.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 535.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 535.
 (./Main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 519.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 519.
-Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: 4B18BCA72FCF19F1505F9659D2E6417A.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 535.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 535.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package rerunfilecheck Warning: File `Main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Main.out':
+(rerunfilecheck)             Before: 6EB48F0D209A52D9FC87DB21F9EA4607
+(rerunfilecheck)             After:  23E8CA05522164C7DD9E8C85D463A215.
+
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25677 strings out of 492922
- 447989 string characters out of 6133407
+ 25680 strings out of 492922
+ 448046 string characters out of 6133407
  719223 words of memory out of 5000000
- 29382 multiletter control sequences out of 15000+600000
+ 29384 multiletter control sequences out of 15000+600000
  566870 words of font info for 113 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  36i,12n,67p,1516b,877s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Main.pdf (19 pages).
+Output written on Main.pdf (21 pages).
