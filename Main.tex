@@ -241,8 +241,29 @@ Because the prey objects of Asian giant hornet are mainly honeybees, and the nes
 
 From the above two pictures, we can check the number of hives and the level of vegetation coverage in each county. In addition, we need to consider the county’s transportation convenience level and winter climate comfort. After considering these standards, we will sum up the scores in these four categories and the final score obtained is the risk grade score of the county (appendix quoted table). So far, we can give a risk score to each location in Washington State, and the score only depends on the above four criteria for that location. We denote the risk score of the location of latitude $x$ degrees and longitude $y$ degrees as $F_1(x,y)$.
 
+We combined the above analysis to discuss the distribution of Asian giant hornet over time. We collected information about 14 samples of Asian giant hornet sightings from the official website of the Washington Department of Agriculture (cited), and began to analyze the relevance of the samples. First of all, most of the sighting reports received by the government are not the Asian giant Hornet. We can easily find that the emergence of the Asian Hornet is controlled in a very small area. This may be attributed to the timely and effective measures taken by the government. Secondly, analyzing the time of sightings of the Asian giant Hornet, we can roughly find several earlier positions of the Asian giant Hornet, all of which were before June 2020. The four sighting samples are :
+% make a table
+\begin{figure}[H]
+  \centering
+  \subfigure[After 10 years]{               %小图题的名称
+  \includegraphics[width=4cm]{./picture/1_10.png}}
+  \hspace{0in}
+  \subfigure[After 20 years]{
+  \includegraphics[width=4cm]{./picture/1_11.png}}
+  \hspace{0in}
+  \subfigure[After 30 years]{
+  \includegraphics[width=4.2cm]{./picture/1_12.png}}
+  \hspace{0in}
+  \subfigure[After 40 years]{
+  \includegraphics[width=4cm]{./picture/1_13.png}}
+  \hspace{0in}
+  \subfigure[After 50 years]{
+  \includegraphics[width=4cm]{./picture/1_14.png}}
+  \label{Dist}
+  \caption{The prediction of future fish school distribution around Scotland}
+  \end{figure}
 
-The reader can compare the following figure \ref{FisheriesAround} with the information of the fishery we chose to discuss, which are shown in the table \ref{FisheryTable}.
+
 \begin{figure}[H]
   \centering{
   \includegraphics[width=3cm]{./picture/1_3_1.png}}
@@ -270,157 +291,50 @@ North Coast \& West Highlands & Green\\
 \label{FisheryColor}
 \end{table}
 
-Then we collected the global ocean temperature data from 2000 to 2017. We sorted out the ocean temperature distribution for each year in the range of \ang{52} N \textasciitilde \ang{62} N, \ang{0} W \textasciitilde \ang{10} W, and displayed it by a $20 \times 10$ matrix. The temperature data type of the ocean location is a float, and the data of the land part is set to NaN. The \ref{FP} is the processed matrix data for 2017.
+Then we analyzed the neighborhood relationship between the sighting lFocations of the Asian giant Hornet and found that in the north of San Juan County and in the  of west of Whatcom County, a circular key area was formed. This area is obviously a dense area for Asian giant Hornet sightings. The sighting time of the Asian giant Hornet is probably from September to November 2020. In order to facilitate subsequent processing, we simplify the area to a circle with a radius of $r_0$. Finally, we analyzed the possible migration paths of the Asian giant Hornet. Considering that the road transportation in the key area is more convenient and close to the sea, we infer that the scattered Asian Hornet sightings around the key area may have migrated from the key area. The analysis process of the distribution changes of the Vespa mandarinia over time can refer to the following figure.
+
+
 
 \begin{figure}[H]
   \centering{
-  \includegraphics[width=12cm]{./picture/FP.png}}
-  \caption{The sea temperature matrix around Scotland in 2017}\label{FP}
+  \includegraphics[width=10cm]{./picture/1_4.png}}
+  \caption{Schematic diagram of the direction of the Asian Hornet}\label{1_4}
 \end{figure}
 
-Then we analyze the characteristics of temperature changes from 2000 to 2017. First, we observed the annual average temperature changes from 2000 to 2017. We tried to process the image with polynomial fit and got the formula \ref{5}, and its graph is shown in figure \ref{FunctionGraph}
-\begin{equation}\label{5}
-  t = 0.001854 y^2 - 0.03 y + 10.3
-  \end{equation}
+The blue areas are the earlier areas, but the Asian giant Hornet samples in two blue areas were cleared at the beginning. The red circular area at the border of  Washington State and Canada is the key area with the most reports of Asian giant Hornet sightings. The three black arrows indicate the possible migration routes of Asian giant hornet. The scattered reports may have been migrated by Asian giant hornet in the key area. 
 
-  \begin{figure}[H]
-    \centering{
-    \includegraphics[width=10cm]{./picture/1_4.png}}
-    \caption{Annual average temperature changes around Scotland from 2000 to 2017}\label{FunctionGraph}
-  \end{figure}
-Although the polynomial we got is not particularly good, we can observe the trend of higher water temperature in recent years from the figure. If we directly use this polynomial to predict the temperature data for the next 50 years, the data will be a bit out of expectation. Therefore, we did not use this formula to predict directly. Instead, we added the interval limit and noise processing.
+The accuracy of the model can be measured by analyzing the number of positive samples that fall in the key area. We can easily observe that there are 10 points that fall in the red circular area in the above figure. These 10 points occupy more than half of all 18 red points. Our model can accurately reflect the migration trend of Vespa mandarinia.
 
-According to information we collected, the temperature of the upper 2000 meters of the global ocean in 2019 is 0.075 degrees Celsius higher than the average state of 1981-2010. During the period 1987-2019, the average ocean warming rate was 450\% of that during the period 1955-1986, showing a continuous trend of accelerated ocean warming. 
+\subsection{Sighting Report Priority Assessment Model}
+\subsubsection{A risk assessment model based on the location of the sighting}
+In the above distribution model over time, we can see that sighting location do help us determine the risk rating of the report. Next we will specifically explain the risk assessment model based on the reported sighting location. We believe that the score of this sub-model is a weighted score of the distance to the key area and the risk rating score of the county. In order to simplify the processing, we use the following formula to express:
 
-Based on this information combined with existing data, we determined that the future temperature increase interval is 7 to 14 degrees Celsius. This interval is not strict. We will also consider the situation where the water temperature rises by 0.075 degrees Celsius every 20 years. The interval will be changed over time. For data that is directly fitted with polynomials, we will assign a certain weight ratio, and then add a random value with a normal distribution so that its final predicted value falls within the limit of the year. The final formula for predicting water temperature in the next 50 years is as follows:
+\begin{equation}
+    S_{A(x,y)} = \gamma F_1(x,y)+ (1-\gamma) F_2(x,y)
+\end{equation}
 
-\begin{equation}\label{2}
-  t = a \cdot \ln (0.001854 y^2 - 0.03 y + 10.3) + s
-  \end{equation}
+The score of model A at position (x, y) should be weighted by F1 score and F2 score according to the coefficient gamma. 
 
-Where $t$ is the predicted water temperature, $a$ is a constant, $y$ is the year, and $s$ is a random number with a normal distribution. The logarithmic function and the random number with a normal distribution are modifications to the polynomial fitting, so that the negative impact on the model was declined to the lowest. Then we use this model to predict the water temperature in the next 50 years. The water temperature maps for 2017 and 2070 are as follows.
+Among them, F1 is calculated from the distance from the sighting position to the key area, and the calculation formula is as follows:
 
-As shown in Figure \ref{SeaT}, we can observe the depth of the color of the small grid to directly obtain the water temperature level. The dark blue area in the figure is the land area, and its value is meaningless.
+\begin{equation}
+  F_1 = \begin{cases}
+    1 & (x-x_0)^2 + (y - y_0)^2 \leq r_{0}^2 \\
+    \frac{r_{0}^2}{(x-x_0)^2+(y-y_0)^2} & (x-x_0)^2 + (y-y_0)^2 > r_{0}^2
 
-\begin{figure}[H]
-  \centering
-  \subfigure[In 2017]{               %小图题的名称
-  \includegraphics[width=4cm]{./picture/1_5.png}}
-  \hspace{0in}
-  \subfigure[In 2070]{
-  \includegraphics[width=4cm,height=6.7cm]{./picture/1_6.png}}
-  \label{SeaT}
-  \caption{The Sea Temperature Map around Scotland in Different Years}
-  \end{figure}
-Using the model above, we could obtain a water temperature change map for the next 50 years. The map is composed of $20 \times 10$ squares. Next, we use computer simulation to let fish schools migrate according to water temperature changes and positional relationships. The 20 x10 matrix is obviously not enough to simulate the migration of this school of fish. For this purpose, a $200 \times 100$ matrix is first generated to represent the distribution of the school of fish. The matrix value is a Boolean number. True means fish, false means no fish, a NaN means it is on land and meaningless. We can see the fish production of various fisheris in Scotland in 2017 as shown in the table below.
+  \end{cases}
+\end{equation}
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|l|l|}% 通过添加 | 来表示是否需要绘制竖线
-  \hline  % 在表格最上方绘制横线
-  \textbf{Fishery Name}&\textbf{Production Amount in 2017}\\
-  \hline  %在第一行和第二行之间绘制横线
-  Argyll \& Clyde & 37506\\
-  \hline % 在表格最下方绘制横线
-  Orkney Islands & 20956\\
-  \hline % 在表格最下方绘制横线
-  Outer Hebrides  & 30668\\
-  \hline % 在表格最下方绘制横线
-  Shetland Isles & 35947\\
-  \hline % 在表格最下方绘制横线
-  North Coast \& West Highlands & 30948\\
-  \hline % 在表格最下方绘制横线
-  \end{tabular}
-  \caption{Fish production in each fishery around Scotland in 2017}
-  \label{FisheryAmount}
-  \end{table}
+We simplify the key area to be a circle with $(x_0, y_0)$ as the center and $r_0$ as the radius. The cluster center of Asian giant hornet appearance address is $(x_0, y_0)=(48.99385, -122.6933)$, the radius of the circle $r_0=0.16822856475640974$. When the sighting location  $(x, y)$ falls within the circular area, the value of $F_1$ is 1, which represents the highest risk at this time; when the sighting location $(x, y)$ falls outside the circular area, $F_1$ is an inverse proportional function between the value and the distance. 
 
-We initialized the fish school distribution according to the data, and generated some points in each fishery according to the proportion. The initial fish school distribution is shown in the figure \ref{InitDist}.
+The $F_2$ score is determined by the county's risk rating score. In the distribution change model of the Asian giant Hornet, we have checked the number of hives and vegetation coverage in each county, and scored the risk for each county. Therefore, we can directly find the risk score of the county where $(x,y)$ is located, and use it as the $F_2$ score. 
 
-\begin{figure}[H]
-  \centering{
-  \includegraphics[width=5cm]{./picture/1_7.png}}
-  \caption{The initial fish school distribution around Scotland}\label{InitDist}
-\end{figure}
+Now for any witness’s report, we can enter the witness location to get the score of the risk assessment model directly, and it will be fused with the following two sub-models.
 
-The density of fish in this area can be roughly judged by analyzing the density of the dot matrix in this erea.
+\subsubsection{A Plain Bayesian-based Review Classification Model}
 
-In order to simulate fish school migration, we first determine that the probability is related to migration distance and water temperature change. We define the probability of fish school migration from one point to another as follows:
-\begin{equation}\label{3}
-      p(x,y) = \sigma (C_1 \cdot (t(x,y)-t_0)+C_2 \cdot d(x,y))
-    \end{equation}
-  \begin{equation}\label{4}
-    \sigma (z) = \frac{1}{1+e^{-z}}
-  \end{equation}
- 
-  where:
-  
-  $p(x,y)$ is the probability of fish school migration to (x, y) point ,
-  
-  $t(x,y)$ is the water temperature of the destination (x, y), 
-  
-  $t_0$ is the favorite temperature of herring or mackerel,
-  
-  $c_1,c_2$ is constants, 
-  
-  $d(x,y)$ is the distance from simulated point to (x, y) point, 
-  
-  A sigmod function is nested in the outer layer.
-  
-  This probability function can intuitively reflect the phenomenon that fish schools migrate to the sea with more suitable temperature as the water temperature changes, and the smaller the temperature difference, the more suitable the temperature at the destination. In addition, this probability is also related to the distance. If the migration distance is too far, the probability of fish migration will be lower. The probability function outer nested sigmod function is to limit the range to (0,1), to avoid the probability obtained is meaningless, which is inspired by the activation function in deep learning. The sigmod function curve is shown in figure \ref{sigmodcurve}.
+According to the existing notes, we can see that all reports that were finally identified as positive do not have a specific description of the appearance, while many of the cases of negative and unverified have detailed description about pests. We can conclude that notes are not significant for whether the sighting is an Asian giant Hornet or not, so the notes classification model based on Naive Bayes has the lowest proportion in the fusion model. But it's not saying that these notes are worthless. In negative reports, the most frequently appearing words are often the Asian giant Hornet characteristics that are most misleading. Therefore, based on this, we can use the frequency of high-frequency misleading words to reversely evaluate the probability that witnesses misjudge the Asian giant Hornet report.
 
-  \begin{figure}[H]
-    \centering{
-    \includegraphics[width=5cm]{./picture/1_8.png}}
-    \caption{The sigmode function curve}\label{sigmodcurve}
-  \end{figure}
-The next step is to use Matlab for computer simulation. The flow chart of the simulation is shown in the figure \ref{matlabflow}.
-
-\begin{figure}[H]
-  \centering{
-  \includegraphics[width=8cm]{./picture/1_9.png}}
-  \caption{The flow chart of the computer simulation}\label{matlabflow}
-\end{figure}
-
-The process of the simulation is the change of the distribution of fish schools per year, and we run the flowchart multiple times for one simulation to exclude the influence of accidental factors. We need to traverse each fish school, and then calculate the probability of the fish school migrating to a nearby point. After the probability of all surrounding points is calculated, a random number is generated. The final destination of this school of fish migration is determined according to which interval is the random number located.
-
-\subsubsection{The Result of Modeling}
-According to this simulation process and the water temperature change matrix obtained previously, we finally got a fish school distribution map for the next 50 years. For comparison, we display one every 10 years and add a real-world map as the background, as shown in figure \ref{Dist}.
-
-\begin{figure}[H]
-  \centering
-  \subfigure[After 10 years]{               %小图题的名称
-  \includegraphics[width=4cm]{./picture/1_10.png}}
-  \hspace{0in}
-  \subfigure[After 20 years]{
-  \includegraphics[width=4cm]{./picture/1_11.png}}
-  \hspace{0in}
-  \subfigure[After 30 years]{
-  \includegraphics[width=4.2cm]{./picture/1_12.png}}
-  \hspace{0in}
-  \subfigure[After 40 years]{
-  \includegraphics[width=4cm]{./picture/1_13.png}}
-  \hspace{0in}
-  \subfigure[After 50 years]{
-  \includegraphics[width=4cm]{./picture/1_14.png}}
-  \label{Dist}
-  \caption{The prediction of future fish school distribution around Scotland}
-  \end{figure}
-
-
-
-
-Notes:
-\begin{itemize}
-  \item The density of the small black dots in the picture reflects the density of the school of fish.
-  \item We only study fish schools that may be harvested, and the fisheris far from the mainland are not shown.
-  \item You may see some points falling on the land. This is because we have abstracted the outline of England's continent into a grid chart.
-  \item From the picture, we can roughly observe that after every 20 years, the distribution of the school of fish will move one degree northward, about 110km.
-\end{itemize}
-
-\subsection{The Model for the Second Question}
-\subsubsection{Preparations before modeling}
-For fishery companies in the same location, in addition to the geographical location, the change in seawater temperature is an important influencing factor for fish production. Based on the simulation of different speeds of seawater temperature changes, we can roughly analyze the elapsed times when samll fishing companies can't havest any more.
 \subsubsection{The Result of Modeling}
 First, we calculated the number of fish in each area in the next 50 years based on the sea temperature change model and computer simulation, as shown in Figure\ref{FishProductionCurve}
 
