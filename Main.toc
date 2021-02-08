@@ -6,18 +6,18 @@
 \contentsline {subsection}{\numberline {2.2}Symbols Definitions}{3}{subsection.2.2}% 
 \contentsline {section}{\numberline {3}Establishment and Solution of Model}{4}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Modeling changes in the distribution of Asian hornets}{4}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Sighting Report Priority Assessment Model}{8}{subsection.3.2}% 
-\contentsline {subsubsection}{\numberline {3.2.1}A risk assessment model based on the location of the sighting}{8}{subsubsection.3.2.1}% 
-\contentsline {subsubsection}{\numberline {3.2.2}A Plain Bayesian-based Review Classification Model}{9}{subsubsection.3.2.2}% 
-\contentsline {subsubsection}{\numberline {3.2.3}A Plain Bayesian-based Review Classification Model}{9}{subsubsection.3.2.3}% 
-\contentsline {subsubsection}{\numberline {3.2.4}EfficientNet-based image classification model}{11}{subsubsection.3.2.4}% 
-\contentsline {subsubsection}{\numberline {3.2.5}The fusion model based on the above three sub-models}{12}{subsubsection.3.2.5}% 
-\contentsline {subsection}{\numberline {3.3}Model interpretation and dynamic update}{12}{subsection.3.3}% 
-\contentsline {subsection}{\numberline {3.4}Model interpretation and dynamic update}{12}{subsection.3.4}% 
-\contentsline {section}{\numberline {4}Model Analysis}{13}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Sensitivity Analysis}{13}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Advantages of the model}{14}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Disadvantages of the model}{14}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Future improvements}{15}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}A Summary for the Washington State Department of Agriculture}{16}{section.5}% 
+\contentsline {subsection}{\numberline {3.2}Sighting Report Priority Assessment Model}{7}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}A risk assessment model based on the location of the sighting}{7}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}A Plain Bayesian-based Review Classification Model}{7}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}A Plain Bayesian-based Review Classification Model}{8}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.4}EfficientNet-based image classification model}{9}{subsubsection.3.2.4}% 
+\contentsline {subsubsection}{\numberline {3.2.5}The fusion model based on the above three sub-models}{10}{subsubsection.3.2.5}% 
+\contentsline {subsection}{\numberline {3.3}Model interpretation and dynamic update}{11}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Model interpretation and dynamic update}{11}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}Model Analysis}{12}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Sensitivity Analysis}{12}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Advantages of the model}{13}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Disadvantages of the model}{13}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Future improvements}{14}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}A Summary for the Washington State Department of Agriculture}{15}{section.5}% 
 \contentsfinish 

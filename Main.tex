@@ -242,54 +242,8 @@ Because the prey objects of Asian giant hornet are mainly honeybees, and the nes
 From the above two pictures, we can check the number of hives and the level of vegetation coverage in each county. In addition, we need to consider the county’s transportation convenience level and winter climate comfort. After considering these standards, we will sum up the scores in these four categories and the final score obtained is the risk grade score of the county (appendix quoted table). So far, we can give a risk score to each location in Washington State, and the score only depends on the above four criteria for that location. We denote the risk score of the location of latitude $x$ degrees and longitude $y$ degrees as $F_1(x,y)$.
 
 We combined the above analysis to discuss the distribution of Asian giant hornet over time. We collected information about 14 samples of Asian giant hornet sightings from the official website of the Washington Department of Agriculture (cited), and began to analyze the relevance of the samples. First of all, most of the sighting reports received by the government are not the Asian giant Hornet. We can easily find that the emergence of the Asian Hornet is controlled in a very small area. This may be attributed to the timely and effective measures taken by the government. Secondly, analyzing the time of sightings of the Asian giant Hornet, we can roughly find several earlier positions of the Asian giant Hornet, all of which were before June 2020. The four sighting samples are :
-% make a table
-\begin{figure}[H]
-  \centering
-  \subfigure[After 10 years]{               %小图题的名称
-  \includegraphics[width=4cm]{./picture/1_10.png}}
-  \hspace{0in}
-  \subfigure[After 20 years]{
-  \includegraphics[width=4cm]{./picture/1_11.png}}
-  \hspace{0in}
-  \subfigure[After 30 years]{
-  \includegraphics[width=4.2cm]{./picture/1_12.png}}
-  \hspace{0in}
-  \subfigure[After 40 years]{
-  \includegraphics[width=4cm]{./picture/1_13.png}}
-  \hspace{0in}
-  \subfigure[After 50 years]{
-  \includegraphics[width=4cm]{./picture/1_14.png}}
-  \label{Dist}
-  \caption{The prediction of future fish school distribution around Scotland}
-  \end{figure}
 
 
-\begin{figure}[H]
-  \centering{
-  \includegraphics[width=3cm]{./picture/1_3_1.png}}
-  \caption{Fisheries around Scotland}\label{FisheriesAround}
-\end{figure}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|}% 通过添加 | 来表示是否需要绘制竖线
-\hline  % 在表格最上方绘制横线
-\textbf{Fishery Name}&\textbf{Representative Color}\\
-\hline  %在第一行和第二行之间绘制横线
-Argyll \& Clyde & Brown\\
-\hline % 在表格最下方绘制横线
-Orkney Islands & Yellow\\
-\hline % 在表格最下方绘制横线
-Outer Hebrides  & Purple\\
-\hline % 在表格最下方绘制横线
-Shetland Isles & Blue\\
-\hline % 在表格最下方绘制横线
-North Coast \& West Highlands & Green\\
-\hline % 在表格最下方绘制横线
-\end{tabular}
-\caption{Represntive Color of Fisheries}
-\label{FisheryColor}
-\end{table}
 
 Then we analyzed the neighborhood relationship between the sighting lFocations of the Asian giant Hornet and found that in the north of San Juan County and in the  of west of Whatcom County, a circular key area was formed. This area is obviously a dense area for Asian giant Hornet sightings. The sighting time of the Asian giant Hornet is probably from September to November 2020. In order to facilitate subsequent processing, we simplify the area to a circle with a radius of $r_0$. Finally, we analyzed the possible migration paths of the Asian giant Hornet. Considering that the road transportation in the key area is more convenient and close to the sea, we infer that the scattered Asian Hornet sightings around the key area may have migrated from the key area. The analysis process of the distribution changes of the Vespa mandarinia over time can refer to the following figure.
 
@@ -386,7 +340,25 @@ The score of a single model always has limitations, but fusion of the above thre
   S_{D(x_1 y_2 img,note)} = \alpha S_{A(x,y)}  + \beta S_{B(img)} + (1-\alpha-\beta)S_{c(note)}
 \end{equation}
 
-The sub-models A,B and C are weighted and summed according to the ratio of 
+The sub-models A,B and C are weighted and summed according to the ratio of $\alpha$,$\beta$,$1-\alpha-\beta$ and the score of the fusion model is still between 0-1. The default weighting ratio is 0.3, 0.1, 0.6. As follows we will perform sensitivity analysis on  $\alpha$ and $\beta$ values. According to the fusion model, we processed the unprocessed and unverified sighting reports, and got the corresponding sub-model scores and fusion model scores. We sort these scores and recommend that the USDA give priority to the high-ranking sighting reports. Below we list the top 8 urgent samples:
+
+\begin{table}[]
+  \centering
+  
+  \begin{tabular}{lllllll}
+  \hline
+  GlobalID                                 & Latitude & Longitude & A Score & B Score & C Score & D Score \\ \hline
+  \{41EB9554\} & 48.72378 & -122.354  & 0.39    & 0.32    & 0.74    & 0.593   \\
+  \{AE7F3E03\} & 48.91023 & -122.357  & 0.49    & 0.35    & 0.67    & 0.584   \\
+  \{BBBA5BA0\} & 45.65147 & -122.515  & 0.05    & 0.56    & 0.82    & 0.563   \\
+  \{F304B4DA\} & 47.90949 & -122.307  & 0.15    & 0.24    & 0.81    & 0.555   \\
+  \{9A5CB940\} & 47.24486 & -122.313  & 0.09    & 0.4     & 0.79    & 0.541   \\
+  \{536BD7C0\} & 47.49115 & -121.717  & 0.09    & 0.5     & 0.76    & 0.533   \\
+  \{BB2B9A3E\} & 47.44804 & -121.77   & 0.09    & 0.43    & 0.66    & 0.466   \\
+  \{15FDD11D\} & 47.50218 & -122.164  & 0.11    & 0.37    & 0.65    & 0.46    \\ \hline
+  \end{tabular}
+  \caption{Four model scores for the first eight samples}
+  \end{table}
 
 %表格
 \subsection{Model interpretation and dynamic update}
