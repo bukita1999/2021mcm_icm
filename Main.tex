@@ -187,15 +187,17 @@ $C$     & A EfficientNet-based Picture Classification Model
 $D$       & The fusion model of the above three single models                                                       \\
 $S_i$      & The priority score of model i, the value range is 0-1, 1 corresponds to the highest priority
                                                             \\
-$O_{ij}$       & The cost of company j in year i                                  \\
-$I_{ij}$       & The income of company j in year i                                         \\
-$q_{ij}$       & The number of units of fish in company j in year i
+$(x_0,y_0)$       & The center coordinate of the key area
+                                 \\
+$r_0$       & The radius of the key area
+                                         \\
+$(x,y)$       & The sighting location, x represents latitude and y represents longitude
 \\
-$r$       & The monthly maintenance fee \\
-$P_i$       & The munber of evacuees using bus to go from node i to node j at that time \\
-$m$      & The distance of the company have moved                                                            \\
-$n$       & The number of fishing vessels purchased                      \\
-$g$       & The unit price of each small fishing vessel                     \\
+$r$       & The distance from the sighting location to the center of key area \\
+$F_1$       & The risk score based on the distance from the key area, the value range is 0-1, 1 corresponds to the highest risk level \\
+$F_2$      &  The risk score based on the number of bee hives and vegetation coverage, the value range is 0-1, 1 corresponds to the highest risk level
+\\
+
 $k$       & The company's migration price per unit distance
 \\
 $h$       & The income per unit of fish                                                                \\
